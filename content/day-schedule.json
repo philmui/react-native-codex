@@ -1,0 +1,331 @@
+{
+  "title": "Morning to 4 pm schedule",
+  "wake": "07:00",
+  "interview": "16:00",
+  "classes": [
+    {
+      "name": "Math 51",
+      "start": "10:30",
+      "end": "11:30"
+    },
+    {
+      "name": "CS106B",
+      "start": "12:30",
+      "end": "13:30"
+    }
+  ],
+  "assumptions": "Class times are confirmed. Morning preparation is estimated at 15 minutes, class transitions at 10 and five minutes, interview travel at 15 minutes, and arrival preparation at 15 minutes. The schedule has no spare time. If travel or meals need longer, use the five-hour fallback or shorten the optional breadth block; preserve core practice, breaks, and arrival time.",
+  "rows": [
+    {
+      "start": "07:00",
+      "end": "07:15",
+      "minutes": 15,
+      "title": "Morning preparation",
+      "task": "Prepare breakfast, laptop, and the study environment.",
+      "kind": "Preparation",
+      "links": []
+    },
+    {
+      "start": "07:15",
+      "end": "07:30",
+      "minutes": 15,
+      "title": "Diagnose",
+      "task": "Attempt the core checks with answers closed.",
+      "kind": "Study",
+      "links": [
+        {
+          "href": "exercises.html#e01",
+          "label": "E01"
+        },
+        {
+          "href": "exercises.html#e02",
+          "label": "E02"
+        },
+        {
+          "href": "exercises.html#e04",
+          "label": "E04"
+        },
+        {
+          "href": "exercises.html#e07",
+          "label": "E07"
+        }
+      ]
+    },
+    {
+      "start": "07:30",
+      "end": "08:10",
+      "minutes": 40,
+      "title": "Arrow functions and map",
+      "task": "Write both callback forms and rebuild a visible list.",
+      "kind": "Study",
+      "links": [
+        {
+          "href": "exercises.html#e01",
+          "label": "E01"
+        },
+        {
+          "href": "exercises.html#e02",
+          "label": "E02"
+        }
+      ]
+    },
+    {
+      "start": "08:10",
+      "end": "08:20",
+      "minutes": 10,
+      "title": "Break",
+      "task": "Step away from the screen.",
+      "kind": "Break",
+      "links": []
+    },
+    {
+      "start": "08:20",
+      "end": "09:05",
+      "minutes": 45,
+      "title": "Array state and setters",
+      "task": "Practice immutable append and both valid setter forms.",
+      "kind": "Study",
+      "links": [
+        {
+          "href": "exercises.html#e04",
+          "label": "E04"
+        }
+      ]
+    },
+    {
+      "start": "09:05",
+      "end": "09:55",
+      "minutes": 50,
+      "title": "Parent and child callbacks",
+      "task": "Build the child-to-parent action flow; then pass an object draft.",
+      "kind": "Study",
+      "links": [
+        {
+          "href": "exercises.html#e07",
+          "label": "E07"
+        }
+      ]
+    },
+    {
+      "start": "09:55",
+      "end": "10:05",
+      "minutes": 10,
+      "title": "Break",
+      "task": "Rest, move, and prepare to switch to types.",
+      "kind": "Break",
+      "links": []
+    },
+    {
+      "start": "10:05",
+      "end": "10:20",
+      "minutes": 15,
+      "title": "TypeScript part 1",
+      "task": "Work on inferred state, empty arrays, null, and callback types.",
+      "kind": "Study",
+      "links": [
+        {
+          "href": "exercises.html#e08",
+          "label": "E08"
+        }
+      ]
+    },
+    {
+      "start": "10:20",
+      "end": "10:30",
+      "minutes": 10,
+      "title": "Transition to class",
+      "task": "Estimated 10 minutes. Save a one-sentence next-step note.",
+      "kind": "Transition",
+      "links": []
+    },
+    {
+      "start": "10:30",
+      "end": "11:30",
+      "minutes": 60,
+      "title": "Math 51",
+      "task": "Class time; do not count it as study time.",
+      "kind": "Class",
+      "links": []
+    },
+    {
+      "start": "11:30",
+      "end": "11:40",
+      "minutes": 10,
+      "title": "TypeScript part 2",
+      "task": "Resume E08 and explain which types inference supplies.",
+      "kind": "Study",
+      "links": [
+        {
+          "href": "exercises.html#e08",
+          "label": "E08"
+        }
+      ]
+    },
+    {
+      "start": "11:40",
+      "end": "12:10",
+      "minutes": 30,
+      "title": "Minimum menu flow",
+      "task": "Build only the form, parent state, and mapped cards.",
+      "kind": "Study",
+      "links": [
+        {
+          "href": "exercises.html#e10",
+          "label": "E10"
+        }
+      ]
+    },
+    {
+      "start": "12:10",
+      "end": "12:25",
+      "minutes": 15,
+      "title": "Lunch and break",
+      "task": "Use this scheduled break for food and a screen-free pause.",
+      "kind": "Break",
+      "links": []
+    },
+    {
+      "start": "12:25",
+      "end": "12:30",
+      "minutes": 5,
+      "title": "Transition to class",
+      "task": "Estimated five minutes; adjust if the route needs longer.",
+      "kind": "Transition",
+      "links": []
+    },
+    {
+      "start": "12:30",
+      "end": "13:30",
+      "minutes": 60,
+      "title": "CS106B",
+      "task": "Class time; leave the practice timer stopped.",
+      "kind": "Class",
+      "links": []
+    },
+    {
+      "start": "13:30",
+      "end": "13:55",
+      "minutes": 25,
+      "title": "Core mock interview",
+      "task": "Run M01 from a blank file, without hints.",
+      "kind": "Study",
+      "links": [
+        {
+          "href": "interviews.html#m01",
+          "label": "M01"
+        }
+      ]
+    },
+    {
+      "start": "13:55",
+      "end": "14:20",
+      "minutes": 25,
+      "title": "Targeted repair",
+      "task": "Score, repair the first broken step, and rebuild with changed data.",
+      "kind": "Study",
+      "links": [
+        {
+          "href": "exercises.html#e02",
+          "label": "E02"
+        },
+        {
+          "href": "exercises.html#e04",
+          "label": "E04"
+        },
+        {
+          "href": "exercises.html#e07",
+          "label": "E07"
+        },
+        {
+          "href": "exercises.html#e08",
+          "label": "E08"
+        }
+      ]
+    },
+    {
+      "start": "14:20",
+      "end": "14:30",
+      "minutes": 10,
+      "title": "Break",
+      "task": "Rest before the final transfer attempt.",
+      "kind": "Break",
+      "links": []
+    },
+    {
+      "start": "14:30",
+      "end": "14:55",
+      "minutes": 25,
+      "title": "Optional breadth or core repair",
+      "task": "Briefly check layout, imports, effects, Promises, and platforms. Use for core repair if needed.",
+      "kind": "Study",
+      "links": [
+        {
+          "href": "interviews.html#q16",
+          "label": "Q16"
+        },
+        {
+          "href": "interviews.html#q19",
+          "label": "Q19"
+        },
+        {
+          "href": "interviews.html#q22",
+          "label": "Q22"
+        },
+        {
+          "href": "interviews.html#q23",
+          "label": "Q23"
+        },
+        {
+          "href": "interviews.html#q24",
+          "label": "Q24"
+        }
+      ]
+    },
+    {
+      "start": "14:55",
+      "end": "15:20",
+      "minutes": 25,
+      "title": "Transfer mock interview",
+      "task": "Run M02 with new data and requirements.",
+      "kind": "Study",
+      "links": [
+        {
+          "href": "interviews.html#m02",
+          "label": "M02"
+        }
+      ]
+    },
+    {
+      "start": "15:20",
+      "end": "15:30",
+      "minutes": 10,
+      "title": "Final recall",
+      "task": "Recall for five minutes, check for two, explain for three.",
+      "kind": "Study",
+      "links": [
+        {
+          "href": "cheatsheet.html",
+          "label": "Cheat sheet"
+        }
+      ]
+    },
+    {
+      "start": "15:30",
+      "end": "15:45",
+      "minutes": 15,
+      "title": "Travel to interview",
+      "task": "Estimated 15 minutes. Leave earlier if the journey is longer.",
+      "kind": "Travel",
+      "links": []
+    },
+    {
+      "start": "15:45",
+      "end": "16:00",
+      "minutes": 15,
+      "title": "Arrival preparation",
+      "task": "Arrive, settle, and check the laptop. No new material.",
+      "kind": "Arrival",
+      "links": []
+    }
+  ]
+}

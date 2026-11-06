@@ -1,0 +1,277 @@
+[
+  {
+    "id": "functions",
+    "title": "Arrow functions",
+    "subtitle": "Know what a function returns",
+    "icon": "↗",
+    "color": "purple",
+    "module": "arrow-functions",
+    "exercise": "e01",
+    "lab": "map",
+    "question": "q01",
+    "diagram": "arrow-functions",
+    "cheat": 0,
+    "idea": "An arrow function is a value you can pass around. When it runs, it receives arguments and may return a result.",
+    "takeaway": "An expression body returns its value. A block needs return when you want a result.",
+    "example": "const double = n => n * 2;\nconst alsoDouble = n => { return n * 2; };\nconst missingReturn = n => { n * 2; };\n\ndouble(3); // 6\nmissingReturn(3); // undefined",
+    "steps": [
+      [
+        [
+          0,
+          4
+        ],
+        "An expression body returns the expression. With n = 3, n * 2 becomes 6."
+      ],
+      [
+        [
+          1
+        ],
+        "Braces create a function block. The explicit return sends the result back to the caller."
+      ],
+      [
+        [
+          2,
+          5
+        ],
+        "A block can calculate a value and discard it. Without return, this function returns undefined."
+      ]
+    ],
+    "prompt": "Write a function that adds 1 to a number. Show an expression body and a block body. Predict the result when the input is 4.",
+    "hint": "Keep the calculation the same. Only the block version needs the return keyword.",
+    "solution": "const addOne = n => n + 1;\nconst addOneBlock = n => { return n + 1; };\n// Both return 5 when called with 4.",
+    "explain": "Both versions receive one number and return a new number. The braces change how you write the return, not the intended calculation.",
+    "quiz": "What does this call return?",
+    "quizcode": "const double = n => { n * 2; };\ndouble(4);",
+    "options": [
+      "8",
+      "undefined",
+      "A syntax error"
+    ],
+    "correct": 1,
+    "responses": [
+      "The calculation produces 8, but the block never returns it. Look for a return statement.",
+      "The block has no return statement, so the call returns undefined. Write n => n * 2 or n => { return n * 2; }.",
+      "This is valid JavaScript syntax. The issue is the missing return value, which changes the behavior."
+    ]
+  },
+  {
+    "id": "lists",
+    "title": "Map and lists",
+    "subtitle": "Turn data into visible elements",
+    "icon": "≡",
+    "color": "blue",
+    "module": "map-lists",
+    "exercise": "e02",
+    "lab": "map",
+    "question": "q03",
+    "diagram": "map-lists",
+    "cheat": 1,
+    "idea": "map calls a function once for each array item. It puts each returned value into a new array. Those values can be elements to display.",
+    "takeaway": "Return an element for each item, and put a stable key on each returned sibling.",
+    "example": "// Component fragment; Text and View are imported.\nconst names = ['Tea', 'Soup'];\nconst rows = names.map(name => (\n  <Text key={name}>{name}</Text>\n));\nreturn <View>{rows}</View>;",
+    "steps": [
+      [
+        [
+          1,
+          2
+        ],
+        "The callback receives one name at a time: first Tea, then Soup."
+      ],
+      [
+        [
+          3
+        ],
+        "Each call returns a Text element. These fixed, unique names can be keys here; editable data should have stable IDs."
+      ],
+      [
+        [
+          4,
+          5
+        ],
+        "map returns the array of elements. JSX braces insert that array into the View."
+      ]
+    ],
+    "prompt": "Given [2, 5, 8], use map to add 1 to every number. Write both arrow-body styles. Predict the result and whether the original changes.",
+    "hint": "The callback receives one number. Its return value becomes one entry in the result.",
+    "solution": "const numbers = [2, 5, 8];\nconst result = numbers.map(n => n + 1);\nconst sameResult = numbers.map(n => { return n + 1; });\n// Results: [3, 6, 9]. numbers remains [2, 5, 8].",
+    "explain": "This transformation creates a new array. Each callback returns a new number and does not mutate the input.",
+    "quiz": "Which result does this map produce?",
+    "quizcode": "[2, 5, 8].map(n => { n + 1; });",
+    "options": [
+      "[3, 6, 9]",
+      "[2, 5, 8]",
+      "[undefined, undefined, undefined]"
+    ],
+    "correct": 2,
+    "responses": [
+      "That would be the result if the callback returned n + 1. This block does not return a value.",
+      "The original array stays [2, 5, 8], but map returns a separate result array.",
+      "Each of the three callback calls returns undefined because its block lacks return."
+    ]
+  },
+  {
+    "id": "state",
+    "title": "Array state",
+    "subtitle": "Build the next value safely",
+    "icon": "+",
+    "color": "teal",
+    "module": "immutable-updates",
+    "exercise": "e04",
+    "lab": "state",
+    "question": "q09",
+    "diagram": "immutable-updates",
+    "cheat": 4,
+    "idea": "State describes a render. To add an item, create a new array and ask React to use it in the next render.",
+    "takeaway": "A setter accepts a new value or a pure updater function. Square brackets create the new array.",
+    "example": "// Inside an add-event handler; menu and setMenu already exist.\nconst newItem = { id: 'b', name: 'Soup' };\nsetMenu(previous => [...previous, newItem]);\n\n// Also valid using this render's menu:\n// setMenu([...menu, newItem]);",
+    "steps": [
+      [
+        [
+          1
+        ],
+        "Create the item outside the updater. In an app, assign a new stable ID when each item is created."
+      ],
+      [
+        [
+          2
+        ],
+        "React supplies previous queued state. ...previous copies its entries into a new array, then newItem is appended."
+      ],
+      [
+        [
+          4,
+          5
+        ],
+        "A direct replacement is also valid. Prefer an updater when the result depends on previous state, especially for multiple queued updates."
+      ]
+    ],
+    "prompt": "Assume menu is array state and item is a new menu item. Write an add handler that appends item without changing the existing array.",
+    "hint": "Use a functional updater. Its parameter is the previous array, and it must return the next array.",
+    "solution": "const addItem = item => {\n  setMenu(previous => [...previous, item]);\n};\n// Component-body fragment in JavaScript.\n// In TypeScript, annotate item with MenuItem.",
+    "explain": "The updater receives previous queued state and returns a new array. Do not use push on the state array. Object braces would produce a different shape.",
+    "quiz": "Is this update valid?",
+    "quizcode": "setMenu(previous => [...previous, item]);",
+    "options": [
+      "Yes: the updater returns the next array.",
+      "No: a setter cannot receive a function.",
+      "No: spread changes the original array."
+    ],
+    "correct": 0,
+    "responses": [
+      "React calls the updater with previous queued state. The array literal returns a new array with the old entries and new item.",
+      "State setters do accept updater functions. This function returns the next state; it is not an event handler.",
+      "Spread inside a new array literal copies entries into that array. It does not mutate the original outer array."
+    ]
+  },
+  {
+    "id": "callbacks",
+    "title": "Props and callbacks",
+    "subtitle": "Connect actions to shared state",
+    "icon": "⇄",
+    "color": "pink",
+    "module": "shared-state",
+    "exercise": "e07",
+    "lab": "callbacks",
+    "question": "q13",
+    "diagram": "shared-state",
+    "cheat": 6,
+    "idea": "Keep shared state in the parent. Give the child a function it can call to request a change. The parent updates state and passes new values down.",
+    "takeaway": "Pass the function as a prop. Call it later, inside the event handler, with the expected argument.",
+    "example": "// Parent component fragments:\nconst addItem = draft => {\n  setMenu(previous => [...previous, draft]);\n};\n<Composer onAdd={addItem} />\n\n// Child JSX fragment:\n<Button title=\"Add\"\n  onPress={() => onAdd({ name, popular })} />",
+    "steps": [
+      [
+        [
+          1,
+          2,
+          4
+        ],
+        "The parent owns menu and the callback. It passes the function itself to Composer through onAdd."
+      ],
+      [
+        [
+          7,
+          8
+        ],
+        "The child passes an arrow function to onPress. On a press, that arrow calls onAdd with an object."
+      ],
+      [
+        [
+          2
+        ],
+        "The parent requests the next array, and React renders again. This simplified fragment omits ID creation; the full app includes it."
+      ]
+    ],
+    "prompt": "Sketch a parent with menu state and a child with draft text. Write the callback prop and the child’s onPress expression. Explain who owns the array.",
+    "hint": "The child gets onAdd as a prop. Its press handler should call onAdd with a { name, popular } object.",
+    "solution": "// JavaScript + JSX example. E07 adds TypeScript types.\nimport { useState } from 'react';\nimport { Button, Switch, Text, TextInput, View } from 'react-native';\n\nexport default function Menu() {\n  const [menu, setMenu] = useState([]);\n  const addItem = draft => {\n    setMenu(previous => [...previous, draft]);\n  };\n  return (\n    <View>\n      <Text>{menu.length} items</Text>\n      <Composer onAdd={addItem} />\n    </View>\n  );\n}\n\nfunction Composer({ onAdd }) {\n  const [name, setName] = useState('');\n  const [popular, setPopular] = useState(false);\n  return (\n    <View>\n      <TextInput value={name} onChangeText={setName} />\n      <Switch value={popular} onValueChange={setPopular} />\n      <Button title=\"Add\"\n        onPress={() => onAdd({ name, popular })} />\n    </View>\n  );\n}",
+    "explain": "Menu owns the array. Composer owns the draft name and popular values, receives onAdd as a prop, and calls it on a press. The parent appends the draft with a pure updater, so the item count changes on the next render. This sketch isolates ownership and callback wiring; E07 adds TypeScript contracts, and the full app adds validation and stable IDs for rendered items.",
+    "quiz": "When is addItem called here?",
+    "quizcode": "<Button title=\"Add\"\n  onPress={() => addItem({ name, popular })} />",
+    "options": [
+      "While the component renders.",
+      "When the button is pressed.",
+      "Only when the component first mounts."
+    ],
+    "correct": 1,
+    "responses": [
+      "Rendering creates and passes the arrow function. It does not call addItem yet.",
+      "React Native calls the handler on a press. The handler calls addItem with the current draft values.",
+      "This is an event handler, not a mount effect. It runs when the button is pressed."
+    ]
+  },
+  {
+    "id": "types",
+    "title": "TypeScript inference",
+    "subtitle": "Add types where they help",
+    "icon": "T",
+    "color": "purple",
+    "module": "typescript-data",
+    "exercise": "e08",
+    "lab": null,
+    "question": "q05",
+    "diagram": "typescript-data",
+    "cheat": 2,
+    "idea": "TypeScript can infer many types from values you supplied. Add a type when the starting value does not describe all the values you intend to store.",
+    "takeaway": "Typed initial data guides inference. Empty arrays, null, and callback contracts often need explicit types.",
+    "example": "type Item = { name: string; popular: boolean };\nconst initialItems: Item[] = [{ name: 'Tea', popular: false }];\n\n// These hooks belong inside a component:\nconst [menu, setMenu] = useState(initialItems);\nconst [emptyMenu, setEmptyMenu] = useState<Item[]>([]);\nconst [selected, setSelected] = useState<Item | null>(null);",
+    "steps": [
+      [
+        [
+          0,
+          1
+        ],
+        "Item describes the object shape. initialItems already has the array type Item[]."
+      ],
+      [
+        [
+          4
+        ],
+        "useState can infer Item[] from the typed initial value. Another annotation here would usually be redundant."
+      ],
+      [
+        [
+          5,
+          6
+        ],
+        "The empty array does not describe its future items, and null does not describe a future selection. Explicit types explain both intentions."
+      ]
+    ],
+    "prompt": "Define MenuItem with name and popular. Type an empty menu array and an onAdd callback prop that receives one MenuItem.",
+    "hint": "An array type is MenuItem[]. An action callback can have the type (item: MenuItem) => void.",
+    "solution": "type MenuItem = { name: string; popular: boolean };\ntype Props = { onAdd: (item: MenuItem) => void };\n\n// Inside a component, with useState imported:\nconst [menu, setMenu] = useState<MenuItem[]>([]);",
+    "explain": "The state type tells TypeScript which elements may be added later. The prop type tells the child what argument to pass. void means the caller does not use the action callback’s return value.",
+    "quiz": "With TypeScript strict checking enabled, which type permits no selection now and an Item later?",
+    "quizcode": "// Item is already defined. Choose the state type.",
+    "options": [
+      "useState(null)",
+      "useState<Item | null>(null)",
+      "useState<string>(null)"
+    ],
+    "correct": 1,
+    "responses": [
+      "With strict typing, null alone does not describe a future Item. Give the state the intended union type.",
+      "Item | null describes both possibilities. Check for null before using the selected Item’s properties.",
+      "null is not a string under strict null checks, and string would not describe the intended Item."
+    ]
+  }
+]

@@ -1,0 +1,285 @@
+{
+  "title": "Six hour study plan",
+  "total_minutes": 360,
+  "break_minutes": 45,
+  "core_instruction": "Follow the blocks in order and pause the study clock for classes or travel. This route totals six hours INCLUDING its breaks. The full guide and workbook are reference libraries; do not read them cover to cover today. Stop each block at its limit and record any hints you need.",
+  "blocks": [
+    {
+      "id": "block-01",
+      "minutes": 15,
+      "title": "Diagnose and prepare",
+      "task": "Close the answers. Write two arrow forms, repair a map with no return, append an item immutably, and sketch parent/child state ownership. Limit each task to three minutes.",
+      "success": "Record the first step you cannot explain. Have a running blank screen.",
+      "kind": "Diagnostic",
+      "elapsed": "00:00–00:15",
+      "links": [
+        {
+          "href": "exercises.html#e01",
+          "label": "E01"
+        },
+        {
+          "href": "exercises.html#e02",
+          "label": "E02"
+        },
+        {
+          "href": "exercises.html#e04",
+          "label": "E04"
+        },
+        {
+          "href": "exercises.html#e07",
+          "label": "E07"
+        }
+      ]
+    },
+    {
+      "id": "block-02",
+      "minutes": 40,
+      "title": "Arrow functions and map",
+      "task": "Use 10 minutes for the arrow explanation and map lab, 20 minutes for E01 and E02, and 10 minutes to rebuild both map forms from memory. Explain JSX braces, return, item, and keys.",
+      "success": "Render a list using both callback styles. Predict the result of a missing return.",
+      "kind": "Core",
+      "elapsed": "00:15–00:55",
+      "links": [
+        {
+          "href": "exercises.html#e01",
+          "label": "E01"
+        },
+        {
+          "href": "exercises.html#e02",
+          "label": "E02"
+        },
+        {
+          "href": "concepts.html#arrow-functions",
+          "label": "Arrow explanation"
+        },
+        {
+          "href": "labs.html#map",
+          "label": "Map lab"
+        }
+      ]
+    },
+    {
+      "id": "block-03",
+      "minutes": 10,
+      "title": "Take a break",
+      "task": "Step away from the screen. Do not fill the break with more reading.",
+      "success": "Return ready to focus.",
+      "kind": "Break",
+      "elapsed": "00:55–01:05",
+      "links": []
+    },
+    {
+      "id": "block-04",
+      "minutes": 45,
+      "title": "Array state and updater functions",
+      "task": "Use 10 minutes for the state queue lab, 20 minutes for E04, 10 minutes to test two queued updates, and five minutes to explain direct values versus updater functions.",
+      "success": "Write setMenu(previous => [...previous, item]) and explain every part. Show the valid direct alternative.",
+      "kind": "Core",
+      "elapsed": "01:05–01:50",
+      "links": [
+        {
+          "href": "exercises.html#e04",
+          "label": "E04"
+        },
+        {
+          "href": "labs.html#state",
+          "label": "State queue lab"
+        },
+        {
+          "href": "concepts.html#immutable-updates",
+          "label": "Array explanation"
+        }
+      ]
+    },
+    {
+      "id": "block-05",
+      "minutes": 50,
+      "title": "Build parent and child callbacks",
+      "task": "Trace the callback lab for 10 minutes. Build E07 in 25 minutes. In the final 15 minutes, change the callback from a string to an object with name and popular. Treat provided types as scaffolding until the typing block.",
+      "success": "Explain press -> child handler -> parent callback -> setter -> new render. Distinguish event callbacks from state updaters.",
+      "kind": "Core",
+      "elapsed": "01:50–02:40",
+      "links": [
+        {
+          "href": "exercises.html#e07",
+          "label": "E07"
+        },
+        {
+          "href": "labs.html#callbacks",
+          "label": "Callback lab"
+        },
+        {
+          "href": "concepts.html#shared-state",
+          "label": "Object callback example"
+        }
+      ]
+    },
+    {
+      "id": "block-06",
+      "minutes": 10,
+      "title": "Take a break",
+      "task": "Rest your eyes and move. Leave the code closed.",
+      "success": "Resume with a clear head.",
+      "kind": "Break",
+      "elapsed": "02:40–02:50",
+      "links": []
+    },
+    {
+      "id": "block-07",
+      "minutes": 25,
+      "title": "Add TypeScript deliberately",
+      "task": "Use E08 for 15 minutes: infer state from a typed initial array, then type an empty array, a nullable selection, and callback props. Spend 10 minutes explaining which types are inferred and why.",
+      "success": "Distinguish useState(initialMenu) from useState<MenuItem[]>([]) and type a callback without any.",
+      "kind": "Core",
+      "elapsed": "02:50–03:15",
+      "links": [
+        {
+          "href": "exercises.html#e08",
+          "label": "E08"
+        },
+        {
+          "href": "concepts.html#typescript-data",
+          "label": "Inference explanation"
+        }
+      ]
+    },
+    {
+      "id": "block-08",
+      "minutes": 30,
+      "title": "Connect the minimum menu flow",
+      "task": "Use E10 as a checklist with the solution closed. Build only a parent menu, a child form, and mapped cards. Add an item and clear the input. Toggle/remove features and styling are optional.",
+      "success": "Enter a name and popularity, press Add, and see a new card. Explain the complete data flow.",
+      "kind": "Core",
+      "elapsed": "03:15–03:45",
+      "links": [
+        {
+          "href": "exercises.html#e10",
+          "label": "E10"
+        }
+      ]
+    },
+    {
+      "id": "block-09",
+      "minutes": 15,
+      "title": "Lunch and break",
+      "task": "Use this scheduled break for food and a screen-free pause before class.",
+      "success": "Begin the next block with a fresh file.",
+      "kind": "Break",
+      "elapsed": "03:45–04:00",
+      "links": []
+    },
+    {
+      "id": "block-10",
+      "minutes": 25,
+      "title": "Run the core mock interview",
+      "task": "Start M01 with the 25-minute timer. Keep answers closed, narrate your decisions, and test the add flow. Record any hints after time ends.",
+      "success": "Collect evidence of what you can build independently.",
+      "kind": "Mock",
+      "elapsed": "04:00–04:25",
+      "links": [
+        {
+          "href": "interviews.html#m01",
+          "label": "M01"
+        }
+      ]
+    },
+    {
+      "id": "block-11",
+      "minutes": 25,
+      "title": "Repair the weakest core step",
+      "task": "Score M01 for five minutes using visible behavior. Pick the earliest broken step, repair it for 10 minutes, then close the answer and rebuild it with new data for 10 minutes.",
+      "success": "Explain the cause of one error and demonstrate the corrected skill from memory.",
+      "kind": "Repair",
+      "elapsed": "04:25–04:50",
+      "links": [
+        {
+          "href": "exercises.html#e02",
+          "label": "E02"
+        },
+        {
+          "href": "exercises.html#e04",
+          "label": "E04"
+        },
+        {
+          "href": "exercises.html#e07",
+          "label": "E07"
+        },
+        {
+          "href": "exercises.html#e08",
+          "label": "E08"
+        }
+      ]
+    },
+    {
+      "id": "block-12",
+      "minutes": 10,
+      "title": "Take a break",
+      "task": "Rest before the final transfer attempt.",
+      "success": "Return with enough attention for transfer and recall.",
+      "kind": "Break",
+      "elapsed": "04:50–05:00",
+      "links": []
+    },
+    {
+      "id": "block-13",
+      "minutes": 25,
+      "title": "Check lecture breadth selectively",
+      "task": "If the core add flow works, spend five minutes each on Flexbox axes, imports, cleanup, Promise order, and cross-platform components. If it still fails, use this block for core repair and mark breadth for later.",
+      "success": "Give brief explanations or demonstrate the repaired core flow. This is a survey, not mastery of every later topic.",
+      "kind": "Breadth",
+      "elapsed": "05:00–05:25",
+      "links": [
+        {
+          "href": "interviews.html#q16",
+          "label": "Q16"
+        },
+        {
+          "href": "interviews.html#q19",
+          "label": "Q19"
+        },
+        {
+          "href": "interviews.html#q22",
+          "label": "Q22"
+        },
+        {
+          "href": "interviews.html#q23",
+          "label": "Q23"
+        },
+        {
+          "href": "interviews.html#q24",
+          "label": "Q24"
+        }
+      ]
+    },
+    {
+      "id": "block-14",
+      "minutes": 25,
+      "title": "Test transfer with a new prompt",
+      "task": "Attempt M02 from a blank file. If the add flow is still unreliable, rebuild that flow using different data instead. Keep answers closed and explain what transferred.",
+      "success": "Build with changed requirements instead of copying a remembered solution.",
+      "kind": "Mock",
+      "elapsed": "05:25–05:50",
+      "links": [
+        {
+          "href": "interviews.html#m02",
+          "label": "M02"
+        }
+      ]
+    },
+    {
+      "id": "block-15",
+      "minutes": 10,
+      "title": "Finish with closed-reference recall",
+      "task": "Write the five core patterns for five minutes. Check the cheat sheet for two minutes, then close it and explain one remaining mistake for three minutes. Stop at the time limit.",
+      "success": "Name the next specific improvement. Do not start a new advanced topic.",
+      "kind": "Recall",
+      "elapsed": "05:50–06:00",
+      "links": [
+        {
+          "href": "cheatsheet.html",
+          "label": "Cheat sheet"
+        }
+      ]
+    }
+  ]
+}

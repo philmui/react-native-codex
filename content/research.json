@@ -1,0 +1,702 @@
+{
+  "researched_at": "2026-11-06",
+  "summary": "Thirty official references were selected after searching public Stanford CS147L pages, checking the current course page and its publicly linked schedule bundle, following lecture demo redirects, and reading React, React Native, TypeScript, Expo and ECMAScript documentation. The ten supplied lecture decks define the study scope; public later lectures provide related context.",
+  "sources": [
+    {
+      "id": "course-2026",
+      "title": "CS 147L Autumn 2026",
+      "url": "https://hci.stanford.edu/courses/cs147l/2026/au/",
+      "publisher": "Stanford HCI",
+      "accessed": "2026-11-06",
+      "why": "Current course context and schedule. The public page uses JavaScript; its linked public bundle was inspected because the search index lagged behind.",
+      "topics": [
+        "course",
+        "interviews",
+        "schedule"
+      ],
+      "scope": "course context"
+    },
+    {
+      "id": "react-state",
+      "title": "useState",
+      "url": "https://react.dev/reference/react/useState",
+      "publisher": "React",
+      "accessed": "2026-11-06",
+      "why": "Confirms that a setter accepts either a next value or a pure updater function; explains snapshots, batching and development checks.",
+      "topics": [
+        "state",
+        "updater",
+        "inference"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "react-lists",
+      "title": "Rendering Lists",
+      "url": "https://react.dev/learn/rendering-lists",
+      "publisher": "React",
+      "accessed": "2026-11-06",
+      "why": "Explains map, explicit returns in block bodies, and stable keys on the outer element returned for each item.",
+      "topics": [
+        "map",
+        "arrow functions",
+        "keys"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "react-arrays",
+      "title": "Updating Arrays in State",
+      "url": "https://react.dev/learn/updating-arrays-in-state",
+      "publisher": "React",
+      "accessed": "2026-11-06",
+      "why": "Provides the immutable update model for adding, removing and replacing items; warns that copying an array is shallow.",
+      "topics": [
+        "spread",
+        "arrays",
+        "map",
+        "filter",
+        "immutability"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "react-queue",
+      "title": "Queueing a Series of State Updates",
+      "url": "https://react.dev/learn/queueing-a-series-of-state-updates",
+      "publisher": "React",
+      "accessed": "2026-11-06",
+      "why": "Explains why repeated replacements based on one render differ from queued updater functions.",
+      "topics": [
+        "state",
+        "batching",
+        "updater"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "react-events",
+      "title": "Responding to Events",
+      "url": "https://react.dev/learn/responding-to-events",
+      "publisher": "React",
+      "accessed": "2026-11-06",
+      "why": "Explains passing an event handler rather than calling it during render, and passing handlers as props. Adapt browser onClick examples to React Native onPress.",
+      "topics": [
+        "callbacks",
+        "events",
+        "props"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "react-sharing",
+      "title": "Sharing State Between Components",
+      "url": "https://react.dev/learn/sharing-state-between-components",
+      "publisher": "React",
+      "accessed": "2026-11-06",
+      "why": "Explains lifting shared state to the nearest common parent and passing values and handlers to children.",
+      "topics": [
+        "callbacks",
+        "props",
+        "lifting state",
+        "controlled inputs"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "react-effect",
+      "title": "useEffect",
+      "url": "https://react.dev/reference/react/useEffect",
+      "publisher": "React",
+      "accessed": "2026-11-06",
+      "why": "Defines dependencies, cleanup order, external synchronization and the extra development Strict Mode setup/cleanup cycle.",
+      "topics": [
+        "effects",
+        "cleanup",
+        "dependencies",
+        "stale responses"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "react-hooks",
+      "title": "Rules of Hooks",
+      "url": "https://react.dev/reference/rules/rules-of-hooks",
+      "publisher": "React",
+      "accessed": "2026-11-06",
+      "why": "Supports calling useState and useEffect at the top level of components or custom Hooks, before early returns.",
+      "topics": [
+        "hooks",
+        "state",
+        "effects"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "react-typescript",
+      "title": "Using TypeScript",
+      "url": "https://react.dev/learn/typescript",
+      "publisher": "React",
+      "accessed": "2026-11-06",
+      "why": "Shows typed component props and state inference; explains when to provide an explicit state type.",
+      "topics": [
+        "TypeScript",
+        "inference",
+        "props",
+        "useState"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "ts-basics",
+      "title": "The Basics",
+      "url": "https://www.typescriptlang.org/docs/handbook/2/basic-types.html",
+      "publisher": "TypeScript",
+      "accessed": "2026-11-06",
+      "why": "Explains compile-time checking and erased type annotations. Type annotations do not validate remote JSON at runtime.",
+      "topics": [
+        "TypeScript",
+        "JavaScript",
+        "types"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "ts-everyday",
+      "title": "Everyday Types",
+      "url": "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html",
+      "publisher": "TypeScript",
+      "accessed": "2026-11-06",
+      "why": "Reference for primitive, array, object, optional-property and union types, including useful inference.",
+      "topics": [
+        "TypeScript",
+        "arrays",
+        "objects",
+        "unions"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "ts-inference",
+      "title": "Type Inference",
+      "url": "https://www.typescriptlang.org/docs/handbook/type-inference.html",
+      "publisher": "TypeScript",
+      "accessed": "2026-11-06",
+      "why": "Explains inference from initializers and contextual types; useful when reducing unnecessary annotations.",
+      "topics": [
+        "TypeScript",
+        "inference"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "ts-functions",
+      "title": "More on Functions",
+      "url": "https://www.typescriptlang.org/docs/handbook/2/functions.html",
+      "publisher": "TypeScript",
+      "accessed": "2026-11-06",
+      "why": "Explains function type expressions such as (item: MenuItem) => void and typed callback parameters.",
+      "topics": [
+        "TypeScript",
+        "callbacks",
+        "functions",
+        "void"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "ts-modules",
+      "title": "Modules",
+      "url": "https://www.typescriptlang.org/docs/handbook/2/modules.html",
+      "publisher": "TypeScript",
+      "accessed": "2026-11-06",
+      "why": "Reference for named exports, default exports, relative imports, aliases and type imports.",
+      "topics": [
+        "imports",
+        "exports",
+        "TypeScript"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "rn-core",
+      "title": "Core Components and Native Components",
+      "url": "https://reactnative.dev/docs/intro-react-native-components",
+      "publisher": "React Native",
+      "accessed": "2026-11-06",
+      "why": "Explains how React Native components use native platform capabilities and views. Avoid treating legacy architecture details as current implementation guidance.",
+      "topics": [
+        "cross-platform",
+        "components",
+        "native views"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "rn-components",
+      "title": "Core Components and APIs",
+      "url": "https://reactnative.dev/docs/components-and-apis",
+      "publisher": "React Native",
+      "accessed": "2026-11-06",
+      "why": "The core-component reference explicitly linked by Lecture 1b, including View, Text, Image, TextInput, Button and ActivityIndicator.",
+      "topics": [
+        "components",
+        "View",
+        "Text",
+        "Image",
+        "Button",
+        "ActivityIndicator"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "rn-style",
+      "title": "Style",
+      "url": "https://reactnative.dev/docs/style",
+      "publisher": "React Native",
+      "accessed": "2026-11-06",
+      "why": "Explains JavaScript style objects, camelCase property names, StyleSheet.create and later styles taking precedence in a style array.",
+      "topics": [
+        "StyleSheet",
+        "style",
+        "objects"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "rn-flex",
+      "title": "Layout with Flexbox",
+      "url": "https://reactnative.dev/docs/flexbox",
+      "publisher": "React Native",
+      "accessed": "2026-11-06",
+      "why": "Explains main/cross axes, direction, alignment and flex ratios; React Native defaults include column direction and flexShrink 0.",
+      "topics": [
+        "flexbox",
+        "layout",
+        "axes"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "rn-dimensions",
+      "title": "Height and Width",
+      "url": "https://reactnative.dev/docs/height-and-width",
+      "publisher": "React Native",
+      "accessed": "2026-11-06",
+      "why": "Explains numeric dimensions, percentages, available parent space and flex sizing.",
+      "topics": [
+        "layout",
+        "dimensions",
+        "flexbox"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "rn-input",
+      "title": "TextInput",
+      "url": "https://reactnative.dev/docs/textinput",
+      "publisher": "React Native",
+      "accessed": "2026-11-06",
+      "why": "Defines value and onChangeText, whose argument is the changed text string. Distinguishes defaultValue and onChange.",
+      "topics": [
+        "TextInput",
+        "controlled inputs",
+        "callbacks"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "rn-pressable",
+      "title": "Pressable",
+      "url": "https://reactnative.dev/docs/pressable",
+      "publisher": "React Native",
+      "accessed": "2026-11-06",
+      "why": "Documents onPress and press behavior for custom buttons.",
+      "topics": [
+        "Pressable",
+        "events",
+        "callbacks"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "rn-scroll",
+      "title": "ScrollView",
+      "url": "https://reactnative.dev/docs/scrollview",
+      "publisher": "React Native",
+      "accessed": "2026-11-06",
+      "why": "Explains the bounded-height requirement and why ScrollView renders all children while FlatList is useful for long lists.",
+      "topics": [
+        "ScrollView",
+        "lists",
+        "layout",
+        "FlatList"
+      ],
+      "scope": "core with related list extension"
+    },
+    {
+      "id": "rn-images",
+      "title": "Images",
+      "url": "https://reactnative.dev/docs/images",
+      "publisher": "React Native",
+      "accessed": "2026-11-06",
+      "why": "Explains static image sources, URI sources and explicit dimensions for network images.",
+      "topics": [
+        "Image",
+        "assets",
+        "dimensions"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "rn-platform",
+      "title": "Platform Specific Code",
+      "url": "https://reactnative.dev/docs/platform-specific-code",
+      "publisher": "React Native",
+      "accessed": "2026-11-06",
+      "why": "Explains Platform.select and platform-specific files when shared behavior must differ across iOS and Android.",
+      "topics": [
+        "cross-platform",
+        "Platform",
+        "platform files"
+      ],
+      "scope": "related extension to Lecture 1a"
+    },
+    {
+      "id": "rn-timers",
+      "title": "Timers",
+      "url": "https://reactnative.dev/docs/timers",
+      "publisher": "React Native",
+      "accessed": "2026-11-06",
+      "why": "Confirms setTimeout, setInterval and their clearing functions exist in React Native. Used for timer API basics only.",
+      "topics": [
+        "timers",
+        "asynchronous programming",
+        "cleanup"
+      ],
+      "scope": "core"
+    },
+    {
+      "id": "ecma-promises",
+      "title": "ECMAScript Promise Objects",
+      "url": "https://tc39.es/ecma262/multipage/control-abstraction-objects.html#sec-promise-objects",
+      "publisher": "Ecma TC39",
+      "accessed": "2026-11-06",
+      "why": "Language specification for pending, fulfilled and rejected promises and queued then reactions; technical verification reference rather than required student reading.",
+      "topics": [
+        "promises",
+        "then",
+        "catch",
+        "asynchronous programming"
+      ],
+      "scope": "core verification"
+    },
+    {
+      "id": "rn-network",
+      "title": "Networking",
+      "url": "https://reactnative.dev/docs/network",
+      "publisher": "React Native",
+      "accessed": "2026-11-06",
+      "why": "Explains Fetch, Promise-based responses, async/await and platform networking differences. Fetching is in the public Week 6 schedule, beyond the supplied decks.",
+      "topics": [
+        "fetch",
+        "promises",
+        "async await",
+        "networking"
+      ],
+      "scope": "related extension"
+    },
+    {
+      "id": "expo-tutorial",
+      "title": "Tutorial Using React Native and Expo",
+      "url": "https://docs.expo.dev/tutorial/introduction/",
+      "publisher": "Expo",
+      "accessed": "2026-11-06",
+      "why": "Optional official hands-on tutorial for a universal Android, iOS and web app. Its current navigation, gestures and native UI content goes beyond the supplied decks.",
+      "topics": [
+        "Expo",
+        "cross-platform",
+        "practice"
+      ],
+      "scope": "related extension"
+    },
+    {
+      "id": "expo-typescript",
+      "title": "Using TypeScript",
+      "url": "https://docs.expo.dev/guides/typescript/",
+      "publisher": "Expo",
+      "accessed": "2026-11-06",
+      "why": "Explains TypeScript setup and compiler configuration in Expo. Preserve the course project configuration instead of upgrading it during study.",
+      "topics": [
+        "Expo",
+        "TypeScript",
+        "setup"
+      ],
+      "scope": "supporting reference"
+    }
+  ],
+  "course_findings": [
+    {
+      "claim": "The current course is Cross-Platform Mobile App Development, with React Native, TypeScript and iOS/Android development as central topics.",
+      "source_ids": [
+        "course-2026"
+      ],
+      "status": "verified"
+    },
+    {
+      "claim": "The public schedule lists React Hooks and useEffect on October 20 and Promises on October 22; these match supplied Lectures 5a and 5b.",
+      "source_ids": [
+        "course-2026"
+      ],
+      "status": "verified in public page script bundle and local decks"
+    },
+    {
+      "claim": "The public schedule links Exercise 2 and places Interview 2 in Weeks 6 and 7. The authenticated exercise document was not available to this research pass. Actual assessment rules and scope should be confirmed with staff.",
+      "source_ids": [
+        "course-2026"
+      ],
+      "status": "schedule verified; assessment contents unverified"
+    },
+    {
+      "claim": "The public schedule includes Fetching on October 27, async/await on October 29 and Navigation on November 5. These are later than the ten supplied decks and should be labeled as related extensions, not assumed assessment requirements.",
+      "source_ids": [
+        "course-2026"
+      ],
+      "status": "verified schedule; scope inference explicitly bounded"
+    },
+    {
+      "claim": "The 2026 course page is a JavaScript application. Search results exposed an older Week 3 view, while the linked public JavaScript bundle contained the later schedule. The newer public bundle was used for schedule verification.",
+      "source_ids": [
+        "course-2026"
+      ],
+      "status": "verified"
+    },
+    {
+      "claim": "The supplied syllabus describes three 25-minute individual coding interviews. Lecture 4a gives preparation and resource rules for the first interview. Actual assessment rules and scope should be confirmed with staff.",
+      "local_sources": [
+        "CS147L-syllabus.md",
+        "lectures/Lecture 4a (CS 147L 26au).pptx slides 6-11"
+      ],
+      "status": "local primary evidence; current assessment details unverified"
+    },
+    {
+      "claim": "Source reconciliation for the state and Hooks lessons: React state setters support both a replacement value and a pure updater function. Use the current React reference to clarify any simplified description of a setter.",
+      "source_ids": [
+        "react-state",
+        "react-typescript"
+      ],
+      "local_sources": [
+        "lectures/Lecture 5a (CS 147L 26au).pptx"
+      ],
+      "status": "general technical clarification verified"
+    },
+    {
+      "claim": "The Lecture 1b displayed 26au short link returned 404. Its actual embedded 25au hyperlink redirects to the correct 26au Snack. The direct resolved demo URL is supplied to avoid the broken displayed link.",
+      "local_sources": [
+        "lectures/Lecture 1b (CS 147L 26au).pptx slide 7"
+      ],
+      "status": "redirect verified"
+    }
+  ],
+  "technical_corrections": [
+    {
+      "topic": "State setters",
+      "explanation": "Both setMenu([...menu, item]) and setMenu(prev => [...prev, item]) are valid. The second is especially useful when the next value depends on pending state. The expression menu => {...menu, item} is invalid array construction and invalid arrow-block syntax; use square brackets to construct the array.",
+      "source_ids": [
+        "react-state",
+        "react-arrays",
+        "react-queue"
+      ]
+    },
+    {
+      "topic": "Arrow functions and map",
+      "explanation": "The number of physical lines is not the rule. An expression body returns its expression; a block body needs return. Parentheses can wrap a multiline expression. A map callback must return the intended element, and the mapped outer element needs a stable key.",
+      "source_ids": [
+        "react-lists"
+      ]
+    },
+    {
+      "topic": "Type inference",
+      "explanation": "A typed initial MenuItem[] usually lets useState infer the state type. An empty array or null does not describe the desired future value well enough; provide useState<MenuItem[]>([]) or a suitable union. TypeScript annotations describe and check types; they are not runtime data validation.",
+      "source_ids": [
+        "react-typescript",
+        "ts-inference",
+        "ts-basics"
+      ]
+    },
+    {
+      "topic": "Callbacks",
+      "explanation": "For the lifted-state pattern, the parent owns the update and passes a function prop. The child calls it in response to an event. Callbacks in general can be declared anywhere appropriate; being defined in a parent is not part of the definition of a callback.",
+      "source_ids": [
+        "react-events",
+        "react-sharing",
+        "ts-functions"
+      ]
+    },
+    {
+      "topic": "Effect timing",
+      "explanation": "An empty dependency array means no dependency changes trigger reruns. Setup occurs after mounting, cleanup occurs on unmount, and development Strict Mode can perform an extra setup/cleanup cycle. Do not teach once ever as an unconditional rule.",
+      "source_ids": [
+        "react-effect"
+      ]
+    },
+    {
+      "topic": "Promise vocabulary",
+      "explanation": "Fulfilled means successful completion. Resolved can also mean locked to another promise that is still pending, so use fulfilled when describing when a success handler runs. Promise handlers are queued rather than called inline.",
+      "source_ids": [
+        "ecma-promises"
+      ]
+    }
+  ],
+  "course_demos": [
+    {
+      "lecture": "1b",
+      "title": "Course lecture 1b Expo Snack",
+      "url": "https://snack.expo.dev/@alan7cheng/cs-147l-26au-lecture-1b",
+      "verification": "Destination verified from the lecture short-link HTTP 308 Location header. Snack contents and runtime were not independently verified.",
+      "accessed": "2026-11-06"
+    },
+    {
+      "lecture": "2a",
+      "title": "Course lecture 2a Expo Snack",
+      "url": "https://snack.expo.dev/@alan7cheng/cs-147l-26au-lecture-2a",
+      "verification": "Destination verified from the lecture short-link HTTP 308 Location header. Snack contents and runtime were not independently verified.",
+      "accessed": "2026-11-06"
+    },
+    {
+      "lecture": "2b1",
+      "title": "Course lecture 2b1 Expo Snack",
+      "url": "https://snack.expo.dev/@alan7cheng/cs-147l-26au-lecture-2b1",
+      "verification": "Destination verified from the lecture short-link HTTP 308 Location header. Snack contents and runtime were not independently verified.",
+      "accessed": "2026-11-06"
+    },
+    {
+      "lecture": "2b2",
+      "title": "Course lecture 2b2 Expo Snack",
+      "url": "https://snack.expo.dev/@alan7cheng/cs-147l-26au-lecture-2b2",
+      "verification": "Destination verified from the lecture short-link HTTP 308 Location header. Snack contents and runtime were not independently verified.",
+      "accessed": "2026-11-06"
+    },
+    {
+      "lecture": "3a",
+      "title": "Course lecture 3a Expo Snack",
+      "url": "https://snack.expo.dev/@alan7cheng/cs-147l-26au-lecture-3a",
+      "verification": "Destination verified from the lecture short-link HTTP 308 Location header. Snack contents and runtime were not independently verified.",
+      "accessed": "2026-11-06"
+    },
+    {
+      "lecture": "3b",
+      "title": "Course lecture 3b Expo Snack",
+      "url": "https://snack.expo.dev/@alan7cheng/cs-147l-26au-lecture-3b",
+      "verification": "Destination verified from the lecture short-link HTTP 308 Location header. Snack contents and runtime were not independently verified.",
+      "accessed": "2026-11-06"
+    },
+    {
+      "lecture": "4a",
+      "title": "Course lecture 4a Expo Snack",
+      "url": "https://snack.expo.dev/@alan7cheng/cs-147l-26au-lecture-4a",
+      "verification": "Destination verified from the lecture short-link HTTP 308 Location header. Snack contents and runtime were not independently verified.",
+      "accessed": "2026-11-06"
+    },
+    {
+      "lecture": "4b",
+      "title": "Course lecture 4b Expo Snack",
+      "url": "https://snack.expo.dev/@stanfordcs147team/cs-147l-26au-lecture-4b",
+      "verification": "Destination verified from the lecture short-link HTTP 308 Location header. Snack contents and runtime were not independently verified.",
+      "accessed": "2026-11-06"
+    },
+    {
+      "lecture": "5a",
+      "title": "Course lecture 5a Expo Snack",
+      "url": "https://snack.expo.dev/@alan7cheng/cs-147l-26au-lecture-5a",
+      "verification": "Destination verified from the lecture short-link HTTP 308 Location header. Snack contents and runtime were not independently verified.",
+      "accessed": "2026-11-06"
+    },
+    {
+      "lecture": "5b1",
+      "title": "Course lecture 5b1 Expo Snack",
+      "url": "https://snack.expo.dev/@alan7cheng/cs-147l-26au-lecture-5b1",
+      "verification": "Destination verified from the lecture short-link HTTP 308 Location header. Snack contents and runtime were not independently verified.",
+      "accessed": "2026-11-06"
+    },
+    {
+      "lecture": "5b2",
+      "title": "Course lecture 5b2 Expo Snack",
+      "url": "https://snack.expo.dev/@alan7cheng/cs-147l-26au-lecture-5b2",
+      "verification": "Destination verified from the lecture short-link HTTP 308 Location header. Snack contents and runtime were not independently verified.",
+      "accessed": "2026-11-06"
+    }
+  ],
+  "caveats": [
+    "This is an independently prepared study guide, not an official Stanford assessment or a guarantee of assessment questions.",
+    "The official Exercise 2 Google Doc is publicly linked but its export returned HTTP 401. The prompt and rubric were not read or reconstructed.",
+    "The public 2026 schedule has later material beyond the supplied decks. Navigation, detailed networking, persistence, animations and deployment are supplementary to the supplied lectures and are not confirmed assessment requirements.",
+    "The 2025 course page and historical 2009 CS147L pages were found, but those years were not used to infer 2026 interview requirements. Old CS147L web-development lab content is a different course context.",
+    "Live documentation may use newer package versions than the course starter. The guide should use stable fundamental APIs and keep the installed course environment.",
+    "Course demo destinations were verified; their interactive contents were not run. Some lecture examples exist as images in slides and should be visually inspected in addition to text extraction.",
+    "The supplied Interview 1 rules in Lecture 4a prohibit homework solution-like code and most AI use during the interview. The generated solution material is for preparation; actual assessment rules and scope should be confirmed with staff."
+  ],
+  "research_log": [
+    "Searched Stanford domains for CS147L React Native TypeScript, current 2026 course, interviews and lecture materials.",
+    "Opened the current course page; the text browser exposed only a JavaScript notice. Fetched the public HTML and the script URL it names, then read the schedule records in that public script.",
+    "Inspected all ten supplied slide text files and extracted external hyperlink relationships to identify official lecture examples.",
+    "Followed eleven hci.st demo redirects and recorded their direct Expo Snack destinations.",
+    "Attempted publicly linked Exercise 1 and Exercise 2 documents; both text exports returned HTTP 401. Did not access private discussion forums or student solutions.",
+    "Read official React guidance on state, queues, arrays, lists, events, shared state, Hooks, effects and TypeScript.",
+    "Read official TypeScript guidance on types, inference, functions, modules and erased annotations.",
+    "Read official React Native component, styling, flexbox, input, image, timer, cross-platform and networking docs, plus Expo and ECMAScript references."
+  ],
+  "topic_source_map": {
+    "cross-platform": [
+      "rn-core",
+      "rn-platform",
+      "expo-tutorial"
+    ],
+    "js-and-ts": [
+      "ts-basics",
+      "ts-everyday",
+      "ts-inference",
+      "ts-functions",
+      "ts-modules"
+    ],
+    "jsx-and-components": [
+      "rn-components",
+      "react-typescript"
+    ],
+    "styles-and-layout": [
+      "rn-style",
+      "rn-flex",
+      "rn-dimensions",
+      "rn-images",
+      "rn-scroll"
+    ],
+    "state-and-events": [
+      "react-state",
+      "react-queue",
+      "react-events",
+      "rn-pressable"
+    ],
+    "map-and-arrays": [
+      "react-lists",
+      "react-arrays"
+    ],
+    "props-and-callbacks": [
+      "react-sharing",
+      "react-events",
+      "ts-functions",
+      "rn-input"
+    ],
+    "effects-and-timers": [
+      "react-effect",
+      "react-hooks",
+      "rn-timers"
+    ],
+    "promises": [
+      "ecma-promises",
+      "rn-network"
+    ],
+    "setup": [
+      "expo-typescript"
+    ]
+  }
+}

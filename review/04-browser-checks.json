@@ -1,0 +1,197 @@
+{
+  "layouts": [
+    {
+      "page": "cheatsheet.html",
+      "width": 320,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "concepts.html",
+      "width": 320,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "exercises.html",
+      "width": 320,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "index.html",
+      "width": 320,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "interviews.html",
+      "width": 320,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "labs.html",
+      "width": 320,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "sources.html",
+      "width": 320,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "cheatsheet.html",
+      "width": 390,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "concepts.html",
+      "width": 390,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "exercises.html",
+      "width": 390,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "index.html",
+      "width": 390,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "interviews.html",
+      "width": 390,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "labs.html",
+      "width": 390,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "sources.html",
+      "width": 390,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "cheatsheet.html",
+      "width": 768,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "concepts.html",
+      "width": 768,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "exercises.html",
+      "width": 768,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "index.html",
+      "width": 768,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "interviews.html",
+      "width": 768,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "labs.html",
+      "width": 768,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "sources.html",
+      "width": 768,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "cheatsheet.html",
+      "width": 1440,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "concepts.html",
+      "width": 1440,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "exercises.html",
+      "width": 1440,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "index.html",
+      "width": 1440,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "interviews.html",
+      "width": 1440,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "labs.html",
+      "width": 1440,
+      "large_text": true,
+      "overflow": false
+    },
+    {
+      "page": "sources.html",
+      "width": 1440,
+      "large_text": true,
+      "overflow": false
+    }
+  ],
+  "checks": [
+    "All 7 pages: unique IDs, valid local links and anchors, reading control, anonymous wording",
+    "Day plan collapsed; only one topic and one mode visible at a time",
+    "All 5 topics \u00d7 4 modes; every quiz answer and example step behaves as expected",
+    "Tab keyboard arrows/Home/End, button focus, mode retained across skills, URL restore, saved notes",
+    "Search: relevant results, no-results feedback, literal user input, clear/Escape. Large reading setting persists; chapter jump focuses target",
+    "Phone selector and desktop radio list stay synchronized",
+    "All 7 pages at 320, 390, 768, 1440 px with large reading size: no horizontal page overflow"
+  ],
+  "page_errors": [],
+  "regression": {
+    "checks": [
+      "Optional schedule hash and mock timer start/pause/reset",
+      "All six existing labs and Promise failure path",
+      "Exercise filters"
+    ],
+    "errors": []
+  },
+  "additional_checks": [
+    "Independent UX recheck of technical search and direct-link restoration",
+    "Exact code copied from file URL",
+    "Storage-denied controls remain functional",
+    "Expanded callback answer fits mobile viewport",
+    "New callback JSX parses with installed TypeScript"
+  ]
+}

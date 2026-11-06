@@ -1,0 +1,409 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="An interactive study guide to React Native and TypeScript, based on CS 147L lecture materials."><title>Coding practice | CS 147L Study Guide</title><link rel="stylesheet" href="assets/style.css"><link rel="stylesheet" href="assets/studio.css"></head><body><a class="skip" href="#main">Skip to content</a><header><div class="header-inner"><a class="brand" href="index.html">CS 147L <span>/ study studio</span></a><nav aria-label="Main navigation"><a href="index.html">Study hub</a><a href="concepts.html">Concepts</a><a href="labs.html">Visual labs</a><a href="exercises.html" aria-current="page">Practice</a><a href="interviews.html">Mock interviews</a><a href="cheatsheet.html">Cheat sheet</a><a href="sources.html">Sources</a></nav></div></header><main id="main"><div class="page-tools"><a href="index.html#explore" class="back-hub">← Explore a skill</a><label class="reading-control">Reading size <select data-reading-size><option value="comfortable">Comfortable</option><option value="large">Large</option></select></label></div><div class="eyebrow">Write • test • explain</div><h1>Practice that makes the ideas stick.</h1><p class="lede">Choose a challenge that matches the idea you want to practice. Start small, open hints when useful, and compare your reasoning with the worked answer.</p><p>The text areas are scratchpads, not compilers. Run React Native code in your existing course app or a compatible Expo project. Each solution identifies whether it is a fragment or a complete file. Original prompts below are not official course exercises.</p><p class="meta">The duration labels are rough estimates, not deadlines. You can pause, explore the related lesson, and return to your saved attempt.</p><div class="filters"><label class="sr-only" for="filter-search">Search exercises</label><input id="filter-search" placeholder="Search topics or exercises"><label for="filter-level">Level</label><select id="filter-level"><option value="all">All levels</option><option>Essential</option><option>Reinforcement</option><option>Integration</option><option>Lecture breadth</option></select><span class="meta" id="result-count">16 items shown</span></div><p id="no-results" hidden>No exercises match. Try a different search.</p><article class="exercise" id="e01" data-level="Essential" data-search="Translate arrow functions without guessing arrow functions return objects This is a standalone TypeScript drill. Write each function in both expression-body and block-body form. First predict the results of triple(4), label(&quot;Tea&quot;), and makeItem(&quot;Tea&quot;). Then explain every pair of parentheses and braces out loud."><span class="badge">Essential</span><span class="badge purple">8 minutes</span><h2>E01 · Translate arrow functions without guessing</h2><div class="article-links"><a href="index.html?skill=functions&amp;view=understand#explore">Review the core idea</a><a href="concepts.html#arrow-functions">Read the full explanation</a></div><p>This is a standalone TypeScript drill. Write each function in both expression-body and block-body form. First predict the results of triple(4), label(&quot;Tea&quot;), and makeItem(&quot;Tea&quot;). Then explain every pair of parentheses and braces out loud.</p><ul><li>Return 12 from triple(4).</li><li>Return &quot;Item: Tea&quot; from label(&quot;Tea&quot;).</li><li>Return an object with name &quot;Tea&quot; from makeItem(&quot;Tea&quot;).</li><li>Use no any types.</li></ul><details><summary>Starter code</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>const triple = (n: number) =&gt; { n * 3; };
+const label = (name: string) =&gt; { return &quot;Item: &quot; + name; };
+const makeItem = (name: string) =&gt; { name: name };</pre></div></details><label for="answer-e01">Your attempt and explanation</label><textarea class="answer-editor" id="answer-e01" data-save="answer-e01" spellcheck="false" placeholder="Write your approach here, or use your editor. This box does not run code."></textarea><details><summary>Hint 1</summary><p>A block body needs an explicit return when a result is required.</p></details><details><summary>Hint 2</summary><p>An object expression begins with a brace, so wrap the object in parentheses in an expression body.</p></details><details><summary>Hint 3</summary><p>Compare n =&gt; n * 3 with n =&gt; { return n * 3; }.</p></details><details><summary>Reference answer and explanation</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// Standalone TypeScript.
+const triple = (n: number) =&gt; n * 3;
+const tripleBlock = (n: number) =&gt; { return n * 3; };
+const label = (name: string) =&gt; &quot;Item: &quot; + name;
+const labelBlock = (name: string) =&gt; { return &quot;Item: &quot; + name; };
+const makeItem = (name: string) =&gt; ({ name });
+const makeItemBlock = (name: string) =&gt; { return { name }; };
+console.log(triple(4), label(&quot;Tea&quot;), makeItem(&quot;Tea&quot;));</pre></div><p>The body after =&gt; is either one expression or a statement block. An expression body returns its value automatically. A block executes statements and needs return to provide a value. Without return, triple originally produced undefined.</p><p>In the original makeItem, the braces start a block and name: is parsed as a label, not an object property. Parentheses make ({ name }) an object expression. The shorter property name form means { name: name }.</p></details><h3>Test the behavior</h3><ul><li>The three printed values are 12, &quot;Item: Tea&quot;, and { name: &quot;Tea&quot; }.</li><li>Change the input to 0 and the empty string; the functions still return values.</li><li>Rewrite all three without looking, then compare expression and block results.</li></ul><h3>Transfer challenge</h3><p>Write a function that returns { title, done: false } for a study task. Explain why =&gt; ({ ... }) works.</p></article><article class="exercise" id="e02" data-level="Essential" data-search="Repair a map that displays nothing map JSX keys Repair this JSX fragment inside a component. Assume Text and View are imported from react-native. Explain what each invocation of the map callback receives and returns. Write both valid callback styles."><span class="badge">Essential</span><span class="badge purple">10 minutes</span><h2>E02 · Repair a map that displays nothing</h2><div class="article-links"><a href="index.html?skill=lists&amp;view=understand#explore">Review the core idea</a><a href="concepts.html#map-lists">Read the full explanation</a></div><p>Repair this JSX fragment inside a component. Assume Text and View are imported from react-native. Explain what each invocation of the map callback receives and returns. Write both valid callback styles.</p><ul><li>Display Tea and Soup in that order.</li><li>Use a stable key from the data.</li><li>Do not alter items or use a for loop.</li></ul><details><summary>Starter code</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>const items = [{ id: &quot;a&quot;, name: &quot;Tea&quot; }, { id: &quot;b&quot;, name: &quot;Soup&quot; }];
+return (
+  &lt;View&gt;
+    {items.map(item =&gt; { &lt;Text&gt;{item.name}&lt;/Text&gt;; })}
+  &lt;/View&gt;
+);</pre></div></details><label for="answer-e02">Your attempt and explanation</label><textarea class="answer-editor" id="answer-e02" data-save="answer-e02" spellcheck="false" placeholder="Write your approach here, or use your editor. This box does not run code."></textarea><details><summary>Hint 1</summary><p>Inspect the callback return value, not only the JSX element.</p></details><details><summary>Hint 2</summary><p>JSX braces insert an expression into the parent View. They are different from a function-body block.</p></details><details><summary>Hint 3</summary><p>Use item =&gt; (&lt;Text key={item.id}&gt;{item.name}&lt;/Text&gt;) or a block with return.</p></details><details><summary>Reference answer and explanation</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// Component-body fragment; Text and View are imported.
+const items = [{ id: &quot;a&quot;, name: &quot;Tea&quot; }, { id: &quot;b&quot;, name: &quot;Soup&quot; }];
+const rows = items.map(item =&gt; (
+  &lt;Text key={item.id}&gt;{item.name}&lt;/Text&gt;
+));
+return &lt;View&gt;{rows}&lt;/View&gt;;
+
+// Equivalent map expression, used instead of the one above:
+// items.map(item =&gt; {
+//   return &lt;Text key={item.id}&gt;{item.name}&lt;/Text&gt;;
+// });</pre></div><p>map calls the callback for each present array element and gathers the returned values into a new array. Here the input elements are data objects; the returned values are React elements. The original callback returned undefined, so it supplied no text elements to display.</p><p>The outer {rows} inserts the array into JSX. key helps React match siblings across changes. It belongs on the outermost element returned by this map, and a data ID is more stable than a changing position or a random number.</p></details><h3>Test the behavior</h3><ul><li>Two text rows appear, with no missing-key warning.</li><li>Reverse the input array; the rendered order reverses.</li><li>Temporarily remove return from a block callback and explain the resulting empty display.</li></ul><h3>Transfer challenge</h3><p>Render a list of campus clubs using a custom ClubCard component instead of Text.</p></article><article class="exercise" id="e03" data-level="Essential" data-search="Make a counter update through React useState events state snapshots Build a complete App.tsx counter. The count starts at zero, Add increments once, Add three increments three times, and Reset sets zero. Explain why changing a local variable is insufficient."><span class="badge">Essential</span><span class="badge purple">10 minutes</span><h2>E03 · Make a counter update through React</h2><p>Build a complete App.tsx counter. The count starts at zero, Add increments once, Add three increments three times, and Reset sets zero. Explain why changing a local variable is insufficient.</p><ul><li>Use state at the top level of the component.</li><li>Pass functions to onPress.</li><li>Use three queued functional updates for Add three.</li></ul><details><summary>Starter code</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// Broken component-body fragment:
+let count = 0;
+const add = () =&gt; { count += 1; };</pre></div></details><label for="answer-e03">Your attempt and explanation</label><textarea class="answer-editor" id="answer-e03" data-save="answer-e03" spellcheck="false" placeholder="Write your approach here, or use your editor. This box does not run code."></textarea><details><summary>Hint 1</summary><p>A local variable is recreated when the component runs, and assigning it does not schedule a render.</p></details><details><summary>Hint 2</summary><p>useState returns the current render value and a setter.</p></details><details><summary>Hint 3</summary><p>Three calls to setCount(c =&gt; c + 1) compose; three calls to setCount(count + 1) use the same captured value.</p></details><details><summary>Reference answer and explanation</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// Complete App.tsx.
+import { useState } from &#x27;react&#x27;;
+import { Button, Text, View } from &#x27;react-native&#x27;;
+export default function App() {
+  const [count, setCount] = useState(0);
+  function addThree() {
+    setCount(c =&gt; c + 1);
+    setCount(c =&gt; c + 1);
+    setCount(c =&gt; c + 1);
+  }
+  return (
+    &lt;View style={{ padding: 40 }}&gt;
+      &lt;Text&gt;{count}&lt;/Text&gt;
+      &lt;Button title=&quot;Add&quot; onPress={() =&gt; setCount(c =&gt; c + 1)} /&gt;
+      &lt;Button title=&quot;Add three&quot; onPress={addThree} /&gt;
+      &lt;Button title=&quot;Reset&quot; onPress={() =&gt; setCount(0)} /&gt;
+    &lt;/View&gt;
+  );
+}</pre></div><p>React retains state between renders. Calling its setter queues an update; the next render receives the next value. The count variable in the current handler remains the current render’s snapshot.</p><p>A setter accepts either the next value or an updater function. Each updater receives the pending state after earlier queued updates. This is why three functional increments produce three additional counts. An updater should be pure: return the next value without changing external data.</p></details><h3>Test the behavior</h3><ul><li>Start at 0; Add gives 1; Add three gives 4; Reset gives 0.</li><li>Replace the three updater calls with setCount(count + 1); from 0 they produce 1. Explain before running.</li><li>A log of count immediately after calling its setter still shows the current handler’s captured value.</li></ul><h3>Transfer challenge</h3><p>Build a ticket counter with a decrement button that never goes below zero.</p></article><article class="exercise" id="e04" data-level="Essential" data-search="Append without mutating the original array array spread functional updates inference Repair this attempted update. This is a component-body fragment with useState imported. Show both a direct replacement and a functional update. Prefer the latter for the final add handler because the next menu depends on the previous menu."><span class="badge">Essential</span><span class="badge purple">10 minutes</span><h2>E04 · Append without mutating the original array</h2><div class="article-links"><a href="index.html?skill=state&amp;view=understand#explore">Review the core idea</a><a href="concepts.html#immutable-updates">Read the full explanation</a></div><p>Repair this attempted update. This is a component-body fragment with useState imported. Show both a direct replacement and a functional update. Prefer the latter for the final add handler because the next menu depends on the previous menu.</p><ul><li>Append to an array, not an object.</li><li>Preserve the old array and its entries.</li><li>Explain why TypeScript infers MenuItem[] here.</li></ul><details><summary>Starter code</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>type MenuItem = { name: string; popular: boolean };
+const initialMenu: MenuItem[] = [{ name: &quot;Tea&quot;, popular: false }];
+const [menu, setMenu] = useState(initialMenu);
+const addMenuItem = (item: MenuItem) =&gt; {
+  setMenu(previous =&gt; { ...previous, item });
+};</pre></div></details><label for="answer-e04">Your attempt and explanation</label><textarea class="answer-editor" id="answer-e04" data-save="answer-e04" spellcheck="false" placeholder="Write your approach here, or use your editor. This box does not run code."></textarea><details><summary>Hint 1</summary><p>The setter can accept an updater. Keep that idea and fix its returned value.</p></details><details><summary>Hint 2</summary><p>Square brackets construct an array. Spread copies its elements into a new array.</p></details><details><summary>Hint 3</summary><p>Return [...previous, item] with an expression body, or use a block with return.</p></details><details><summary>Reference answer and explanation</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// Component-body fragment; useState is imported.
+type MenuItem = { name: string; popular: boolean };
+const initialMenu: MenuItem[] = [{ name: &quot;Tea&quot;, popular: false }];
+const [menu, setMenu] = useState(initialMenu);
+const addMenuItem = (item: MenuItem) =&gt; {
+  setMenu(previous =&gt; [...previous, item]);
+};
+// Also valid for one update based on this render&#x27;s menu:
+// setMenu([...menu, item]);
+// Equivalent functional form:
+// setMenu(previous =&gt; { return [...previous, item]; });</pre></div><p>Both a direct array replacement and a functional update are valid. Lecture 5a slide 10 explicitly teaches both forms. The starter fails because it uses a malformed block/spread expression instead of returning an array. Square brackets construct the array; an expression body returns it automatically.</p><p>Spreading an array into another array copies element references; it does not deep-copy nested objects. That is enough for appending a new item, provided old objects are not mutated. The typed initialMenu provides information from which useState infers MenuItem[].</p></details><h3>Test the behavior</h3><ul><li>Add Soup after Tea; the next array contains both in order.</li><li>Keep a reference to the old array in a standalone equivalent; its length remains 1 and the next array is a different reference.</li><li>Queue two functional appends in the same event; both items remain.</li></ul><h3>Transfer challenge</h3><p>Prepend the new item, then explain the difference between [item, ...previous] and [...previous, item].</p></article><article class="exercise" id="e05" data-level="Essential" data-search="Update one object and remove another map filter object spread immutability Write two handlers inside a component that stores Task[] in state. toggleTask(id) changes only the matching task’s done value. removeTask(id) deletes only that task. The IDs are unique."><span class="badge">Essential</span><span class="badge purple">12 minutes</span><h2>E05 · Update one object and remove another</h2><p>Write two handlers inside a component that stores Task[] in state. toggleTask(id) changes only the matching task’s done value. removeTask(id) deletes only that task. The IDs are unique.</p><ul><li>Return new arrays.</li><li>Copy the changed object instead of mutating it.</li><li>Keep IDs stable.</li><li>Do nothing harmful when an ID is absent.</li></ul><details><summary>Starter code</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>type Task = { id: string; title: string; done: boolean };
+const [tasks, setTasks] = useState&lt;Task[]&gt;([
+  { id: &quot;t1&quot;, title: &quot;Read&quot;, done: false },
+  { id: &quot;t2&quot;, title: &quot;Practice&quot;, done: true },
+]);
+// Write toggleTask and removeTask here.</pre></div></details><label for="answer-e05">Your attempt and explanation</label><textarea class="answer-editor" id="answer-e05" data-save="answer-e05" spellcheck="false" placeholder="Write your approach here, or use your editor. This box does not run code."></textarea><details><summary>Hint 1</summary><p>map preserves a one-for-one relationship; filter selects which elements remain.</p></details><details><summary>Hint 2</summary><p>For the matching task return { ...task, done: !task.done }.</p></details><details><summary>Hint 3</summary><p>The filter callback should return true for tasks to keep.</p></details><details><summary>Reference answer and explanation</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// Component-body fragment; useState is imported and tasks exist.
+function toggleTask(id: string) {
+  setTasks(previous =&gt; previous.map(task =&gt;
+    task.id === id ? { ...task, done: !task.done } : task
+  ));
+}
+function removeTask(id: string) {
+  setTasks(previous =&gt; previous.filter(task =&gt; task.id !== id));
+}</pre></div><p>An immutable edit copies each level that changes: the array and the matching task object. Unchanged task objects may retain their references because their values are unchanged. [...previous] followed by next[0].done = true would still mutate the shared first object.</p><p>filter keeps elements whose predicate is true. To remove t1, keep tasks with task.id !== &quot;t1&quot;. map transforms elements; it does not remove them just because a callback returns undefined.</p></details><h3>Test the behavior</h3><ul><li>Toggle t1: t1 becomes true and t2 remains true. Toggle t1 again: it returns to false.</li><li>Remove t2: only t1 remains. Removing an unknown ID leaves the displayed data unchanged.</li><li>Save the old t1 object in a standalone test and confirm its done field did not change.</li></ul><h3>Transfer challenge</h3><p>Insert a task at index 1 with slice, then replace an item at that index without using map.</p></article><article class="exercise" id="e06" data-level="Essential" data-search="Connect a controlled input TextInput controlled state callbacks Create a complete screen that displays a name as it is typed and clears it with a button. The button is disabled when the input is empty. Explain why onChangeText receives a string rather than a browser event."><span class="badge">Essential</span><span class="badge purple">10 minutes</span><h2>E06 · Connect a controlled input</h2><p>Create a complete screen that displays a name as it is typed and clears it with a button. The button is disabled when the input is empty. Explain why onChangeText receives a string rather than a browser event.</p><ul><li>Keep value and onChangeText connected to the same state.</li><li>Render text inside Text.</li><li>Do not call the setter while rendering.</li></ul><details><summary>Starter code</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// In a component:
+// &lt;TextInput value={name} onChangeText={/* ? */} /&gt;</pre></div></details><label for="answer-e06">Your attempt and explanation</label><textarea class="answer-editor" id="answer-e06" data-save="answer-e06" spellcheck="false" placeholder="Write your approach here, or use your editor. This box does not run code."></textarea><details><summary>Hint 1</summary><p>Initialize name with useState(&quot;&quot;).</p></details><details><summary>Hint 2</summary><p>Pass setName directly because its accepted string value fits this callback.</p></details><details><summary>Hint 3</summary><p>For Clear, pass () =&gt; setName(&quot;&quot;) rather than setName(&quot;&quot;).</p></details><details><summary>Reference answer and explanation</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// Complete App.tsx.
+import { useState } from &#x27;react&#x27;;
+import { Button, Text, TextInput, View } from &#x27;react-native&#x27;;
+export default function App() {
+  const [name, setName] = useState(&#x27;&#x27;);
+  return (
+    &lt;View style={{ padding: 40 }}&gt;
+      &lt;TextInput accessibilityLabel=&quot;Your name&quot; value={name}
+        onChangeText={setName}
+        style={{ borderWidth: 1, padding: 12 }} /&gt;
+      &lt;Text&gt;Hello, {name || &#x27;friend&#x27;}.&lt;/Text&gt;
+      &lt;Button title=&quot;Clear&quot; disabled={name.length === 0}
+        onPress={() =&gt; setName(&#x27;&#x27;)} /&gt;
+    &lt;/View&gt;
+  );
+}</pre></div><p>The displayed input value comes from React state. Typing invokes onChangeText with the new string; setName schedules a render; the next value prop reflects that string. This complete loop makes the input controlled.</p><p>React Native TextInput has onChangeText for direct text values. A browser input often uses an event and event.target.value; copying that web pattern into onChangeText would be incorrect. A value prop without a corresponding update can make the input appear stuck.</p></details><h3>Test the behavior</h3><ul><li>Typing Alex changes both the input and greeting.</li><li>Clear empties the field, changes the greeting to friend, and disables itself.</li><li>Typing a space is allowed by this exercise; explain how trim() would change validation.</li></ul><h3>Transfer challenge</h3><p>Add a character counter derived from name.length without introducing another state variable.</p></article><article class="exercise" id="e07" data-level="Essential" data-search="Send an action from child to parent callback props lifting state function types Complete a parent and child pair. The parent owns an array of names. The child owns only the draft text. Pressing Add in the child should ask the parent to append the trimmed name. The array must remain in the parent."><span class="badge">Essential</span><span class="badge purple">14 minutes</span><h2>E07 · Send an action from child to parent</h2><div class="article-links"><a href="index.html?skill=callbacks&amp;view=understand#explore">Review the core idea</a><a href="concepts.html#shared-state">Read the full explanation</a></div><p>Complete a parent and child pair. The parent owns an array of names. The child owns only the draft text. Pressing Add in the child should ask the parent to append the trimmed name. The array must remain in the parent.</p><ul><li>Type onAdd as a function that receives one string and returns no useful value.</li><li>Reject blank or whitespace-only submissions.</li><li>Clear the child draft after a successful submission.</li><li>Use a functional array update in the parent.</li></ul><details><summary>Starter code</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>type ComposerProps = { onAdd: /* write the function type */ };
+function Composer({ onAdd }: ComposerProps) {
+  // Own draft text; call onAdd only on submission.
+}
+export default function App() {
+  // Own names and pass an add handler to Composer.
+}</pre></div></details><label for="answer-e07">Your attempt and explanation</label><textarea class="answer-editor" id="answer-e07" data-save="answer-e07" spellcheck="false" placeholder="Write your approach here, or use your editor. This box does not run code."></textarea><details><summary>Hint 1</summary><p>The type is (name: string) =&gt; void. That describes the callback; it does not execute it.</p></details><details><summary>Hint 2</summary><p>The parent passes onAdd={addName}. The child later calls onAdd(cleanName) in a handler.</p></details><details><summary>Hint 3</summary><p>Props travel down; an event invokes a function supplied from above. The child does not directly write the parent’s state.</p></details><details><summary>Reference answer and explanation</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// Complete App.tsx. The names below are append-only; a single Text displays them.
+import { useState } from &#x27;react&#x27;;
+import { Button, Text, TextInput, View } from &#x27;react-native&#x27;;
+type ComposerProps = { onAdd: (name: string) =&gt; void };
+function Composer({ onAdd }: ComposerProps) {
+  const [draft, setDraft] = useState(&#x27;&#x27;);
+  function submit() {
+    const name = draft.trim();
+    if (!name) return;
+    onAdd(name);
+    setDraft(&#x27;&#x27;);
+  }
+  return (
+    &lt;View&gt;
+      &lt;TextInput accessibilityLabel=&quot;New name&quot; value={draft}
+        onChangeText={setDraft} style={{ borderWidth: 1, padding: 12 }} /&gt;
+      &lt;Button title=&quot;Add&quot; onPress={submit} disabled={!draft.trim()} /&gt;
+    &lt;/View&gt;
+  );
+}
+export default function App() {
+  const [names, setNames] = useState&lt;string[]&gt;([]);
+  function addName(name: string) {
+    setNames(previous =&gt; [...previous, name]);
+  }
+  return (
+    &lt;View style={{ padding: 40 }}&gt;
+      &lt;Composer onAdd={addName} /&gt;
+      &lt;Text&gt;{names.length ? names.join(&#x27;, &#x27;) : &#x27;No names yet&#x27;}&lt;/Text&gt;
+    &lt;/View&gt;
+  );
+}</pre></div><p>There are two pieces of state with different owners. The draft is used only inside the form, so it stays there. The submitted names are needed by the parent display, so they live in App. If two siblings later need the same draft, move it to their nearest common ancestor.</p><p>onAdd is a prop containing a function value. Calling it reports an action to the parent’s handler. This does not reverse the direction of props: the parent still supplies both data and callbacks downward, and owns the state update.</p></details><h3>Test the behavior</h3><ul><li>Type two names and submit each. Both appear in order.</li><li>Submitting spaces adds nothing.</li><li>Explain the path from the press, through submit and onAdd, to setNames and the next render.</li></ul><h3>Transfer challenge</h3><p>Change the callback to accept { name, popular } instead of a string and adjust both its type and the object passed by the child.</p></article><article class="exercise" id="e08" data-level="Essential" data-search="Place types where inference needs help TypeScript inference union types props Complete this standalone TypeScript and React-state typing drill. Explain which annotations are needed for the intended future values, and which can be inferred. Do not add any or assertions to silence errors."><span class="badge">Essential</span><span class="badge purple">10 minutes</span><h2>E08 · Place types where inference needs help</h2><div class="article-links"><a href="index.html?skill=types&amp;view=understand#explore">Review the core idea</a><a href="concepts.html#typescript-data">Read the full explanation</a></div><p>Complete this standalone TypeScript and React-state typing drill. Explain which annotations are needed for the intended future values, and which can be inferred. Do not add any or assertions to silence errors.</p><ul><li>Allow items to hold MenuItem objects.</li><li>Allow selected to hold a MenuItem or null.</li><li>Type summarize’s parameter.</li><li>Define onChoose as receiving a MenuItem.</li></ul><details><summary>Starter code</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>type MenuItem = { id: string; name: string; popular: boolean };
+// Inside a component with useState imported:
+const [title, setTitle] = useState(&#x27;Menu&#x27;);
+const [items, setItems] = useState([]);
+const [selected, setSelected] = useState(null);
+// Outside the component:
+const summarize = (item) =&gt; item.name;
+// Define a props type for one item and an onChoose callback.</pre></div></details><label for="answer-e08">Your attempt and explanation</label><textarea class="answer-editor" id="answer-e08" data-save="answer-e08" spellcheck="false" placeholder="Write your approach here, or use your editor. This box does not run code."></textarea><details><summary>Hint 1</summary><p>An empty array provides no useful element examples. Under common strict React TypeScript settings it can infer never[].</p></details><details><summary>Hint 2</summary><p>null alone does not describe a future MenuItem; use a union.</p></details><details><summary>Hint 3</summary><p>Return string from summarize can be inferred from the typed parameter.</p></details><details><summary>Reference answer and explanation</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// State lines go inside a component; useState must be imported.
+const [title, setTitle] = useState(&#x27;Menu&#x27;); // string is inferred
+const [items, setItems] = useState&lt;MenuItem[]&gt;([]);
+const [selected, setSelected] = useState&lt;MenuItem | null&gt;(null);
+
+// Type declarations and this function can live outside the component.
+const summarize = (item: MenuItem) =&gt; item.name;
+type CardProps = {
+  item: MenuItem;
+  onChoose: (item: MenuItem) =&gt; void;
+};</pre></div><p>Inference is strongest when a value or surrounding context gives TypeScript useful evidence. A typed initial array, such as const initial: MenuItem[] = [], lets useState(initial) infer the same type. For an empty literal or null, an explicit type expresses the later states you intend.</p><p>TypeScript checks code before execution; types do not validate unknown network responses at runtime. The compiler can catch setTitle(42), but a type annotation alone cannot guarantee that downloaded JSON has the promised shape.</p></details><h3>Test the behavior</h3><ul><li>setItems([{ id: &quot;a&quot;, name: &quot;Tea&quot;, popular: true }]) type-checks; an item missing popular does not.</li><li>setSelected(null) and setSelected(aMenuItem) are permitted.</li><li>Before reading selected.name, use selected !== null or optional chaining; explain the possible absent case.</li></ul><h3>Transfer challenge</h3><p>Define a union status type &quot;idle&quot; | &quot;loading&quot; | &quot;ready&quot; | &quot;error&quot; and explain what misspellings it catches.</p></article><article class="exercise" id="e09" data-level="Reinforcement" data-search="Build a nested layout from a verbal description Flexbox StyleSheet box model core components Build a profile card. Its outer container is a column. The top row places a 64-unit avatar placeholder beside a text column. A bottom row spreads two buttons apart. Explain the main and cross axes of each row."><span class="badge">Reinforcement</span><span class="badge purple">15 minutes</span><h2>E09 · Build a nested layout from a verbal description</h2><p>Build a profile card. Its outer container is a column. The top row places a 64-unit avatar placeholder beside a text column. A bottom row spreads two buttons apart. Explain the main and cross axes of each row.</p><ul><li>Use nested containers instead of absolute positioning.</li><li>Apply padding inside the card and margin outside it.</li><li>Let the text column use the remaining row width.</li><li>Use styles defined with StyleSheet.create.</li></ul><details><summary>Starter code</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// Create a complete App.tsx using View, Text, Button, and StyleSheet.
+// Use a colored View as the avatar so this exercise works offline.</pre></div></details><label for="answer-e09">Your attempt and explanation</label><textarea class="answer-editor" id="answer-e09" data-save="answer-e09" spellcheck="false" placeholder="Write your approach here, or use your editor. This box does not run code."></textarea><details><summary>Hint 1</summary><p>React Native flexDirection defaults to column. Give the two horizontal containers flexDirection: &quot;row&quot;.</p></details><details><summary>Hint 2</summary><p>In a row, justifyContent controls horizontal distribution and alignItems controls vertical alignment.</p></details><details><summary>Hint 3</summary><p>Use flex: 1 on the text column; the parent card must have available width.</p></details><details><summary>Reference answer and explanation</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// Complete App.tsx.
+import { Button, StyleSheet, Text, View } from &#x27;react-native&#x27;;
+export default function App() {
+  return (
+    &lt;View style={styles.screen}&gt;
+      &lt;View style={styles.card}&gt;
+        &lt;View style={styles.top}&gt;
+          &lt;View style={styles.avatar} /&gt;
+          &lt;View style={styles.description}&gt;
+            &lt;Text style={styles.name}&gt;Jordan&lt;/Text&gt;
+            &lt;Text&gt;First-year student learning mobile development.&lt;/Text&gt;
+          &lt;/View&gt;
+        &lt;/View&gt;
+        &lt;View style={styles.actions}&gt;
+          &lt;Button title=&quot;Follow&quot; onPress={() =&gt; {}} /&gt;
+          &lt;Button title=&quot;Message&quot; onPress={() =&gt; {}} /&gt;
+        &lt;/View&gt;
+      &lt;/View&gt;
+    &lt;/View&gt;
+  );
+}
+const styles = StyleSheet.create({
+  screen: { flex: 1, paddingTop: 48, backgroundColor: &#x27;#E8EDFF&#x27; },
+  card: { margin: 16, padding: 16, borderWidth: 1,
+    borderColor: &#x27;#6574A0&#x27;, borderRadius: 16, backgroundColor: &#x27;white&#x27; },
+  top: { flexDirection: &#x27;row&#x27;, alignItems: &#x27;center&#x27; },
+  avatar: { width: 64, height: 64, borderRadius: 32, backgroundColor: &#x27;#815AE8&#x27; },
+  description: { flex: 1, marginLeft: 16 },
+  name: { fontSize: 20, fontWeight: &#x27;700&#x27; },
+  actions: { flexDirection: &#x27;row&#x27;, justifyContent: &#x27;space-between&#x27;, marginTop: 20 },
+});</pre></div><p>Each container controls only its direct children. The card stacks the top row and action row vertically. The top row controls the avatar and text column. The text column then stacks its own Text children. This tree makes the two-dimensional layout easier to reason about.</p><p>padding creates space between the card border and its content. margin creates space outside the card. A numeric size uses React Native logical layout units; it is not a CSS string such as &quot;64px&quot;. The placeholder buttons intentionally have no behavior in this layout-only exercise.</p></details><h3>Test the behavior</h3><ul><li>Narrow the window: text wraps and remains beside the avatar.</li><li>Change top.flexDirection to column and predict the positions before running.</li><li>Set alignItems to flex-start and observe only the top row’s cross-axis alignment change.</li></ul><h3>Transfer challenge</h3><p>Replace the placeholder with Image using a remote URI and explicit dimensions; explain why an image may need width and height.</p></article><article class="exercise" id="e10" data-level="Integration" data-search="Rebuild the complete campus menu state map callbacks TextInput TypeScript immutable arrays Build an original campus menu app from a blank App.tsx. App owns MenuItem[]. Composer owns name and popular draft state and receives an onAdd callback. ItemCard receives one item and callbacks. Begin with two items, add new ones, toggle popularity, and remove items. Build adding first; toggling and removal are extensions if time remains. A complete reference file is provided at practice/MenuApp.tsx."><span class="badge">Integration</span><span class="badge purple">25 minutes</span><h2>E10 · Rebuild the complete campus menu</h2><p>Build an original campus menu app from a blank App.tsx. App owns MenuItem[]. Composer owns name and popular draft state and receives an onAdd callback. ItemCard receives one item and callbacks. Begin with two items, add new ones, toggle popularity, and remove items. Build adding first; toggling and removal are extensions if time remains. A complete reference file is provided at practice/MenuApp.tsx.</p><ul><li>Use one parent-owned menu array and stable IDs.</li><li>Render cards with map and keys.</li><li>Add a trimmed nonblank name through the child callback.</li><li>Use functional immutable state updates.</li><li>Show an empty state after removing every item.</li><li>Explain each callback type aloud.</li></ul><details><summary>Starter code</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>type MenuDraft = { name: string; popular: boolean };
+type MenuItem = MenuDraft &amp; { id: string };
+// Sketch App -&gt; Composer and App -&gt; ItemCard before coding.
+// Start with static cards, then add state, then wire callbacks.</pre></div></details><label for="answer-e10">Your attempt and explanation</label><textarea class="answer-editor" id="answer-e10" data-save="answer-e10" spellcheck="false" placeholder="Write your approach here, or use your editor. This box does not run code."></textarea><details><summary>Hint 1</summary><p>First render two hard-coded cards. Then replace duplicate JSX with menu.map.</p></details><details><summary>Hint 2</summary><p>Give Composer the type { onAdd: (draft: MenuDraft) =&gt; void }. A button calls onAdd({ name: cleanName, popular }).</p></details><details><summary>Hint 3</summary><p>The parent gives the draft an ID, then calls setMenu(previous =&gt; [...previous, item]). Generate the ID outside the updater so the updater remains pure.</p></details><details><summary>Reference answer and explanation</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// Complete App.tsx for a standard Expo React Native TypeScript project or Snack.
+// Original practice solution. Rebuild from the requirements before reading it.
+import { useState } from &#x27;react&#x27;;
+import {
+  Button, Pressable, ScrollView, StyleSheet,
+  Switch, Text, TextInput, View,
+} from &#x27;react-native&#x27;;
+
+type MenuDraft = { name: string; popular: boolean };
+export type MenuItem = MenuDraft &amp; { id: string };
+const initialMenu: MenuItem[] = [
+  { id: &#x27;1&#x27;, name: &#x27;Rice bowl&#x27;, popular: true },
+  { id: &#x27;2&#x27;, name: &#x27;Fruit cup&#x27;, popular: false },
+];
+
+type ComposerProps = { onAdd: (draft: MenuDraft) =&gt; void };
+function Composer({ onAdd }: ComposerProps) {
+  const [name, setName] = useState(&#x27;&#x27;);
+  const [popular, setPopular] = useState(false);
+  const cleanName = name.trim();
+  function submit() {
+    if (cleanName.length === 0) return;
+    onAdd({ name: cleanName, popular });
+    setName(&#x27;&#x27;);
+    setPopular(false);
+  }
+  return (
+    &lt;View style={styles.composer}&gt;
+      &lt;TextInput
+        accessibilityLabel=&quot;New menu item name&quot;
+        placeholder=&quot;New menu item&quot;
+        value={name}
+        onChangeText={setName}
+        style={styles.input}
+      /&gt;
+      &lt;View style={styles.row}&gt;
+        &lt;Text&gt;Popular&lt;/Text&gt;
+        &lt;Switch
+          accessibilityLabel=&quot;Mark new item popular&quot;
+          value={popular}
+          onValueChange={setPopular}
+        /&gt;
+      &lt;/View&gt;
+      &lt;Button title=&quot;Add item&quot; disabled={!cleanName} onPress={submit} /&gt;
+    &lt;/View&gt;
+  );
+}
+
+type CardProps = {
+  item: MenuItem;
+  onToggle: (id: string) =&gt; void;
+  onRemove: (id: string) =&gt; void;
+};
+function ItemCard({ item, onToggle, onRemove }: CardProps) {
+  return (
+    &lt;View style={styles.card}&gt;
+      &lt;Text style={styles.itemName}&gt;{item.name}&lt;/Text&gt;
+      &lt;Text&gt;{item.popular ? &#x27;Popular choice&#x27; : &#x27;Regular choice&#x27;}&lt;/Text&gt;
+      &lt;View style={styles.actions}&gt;
+        &lt;Pressable
+          accessibilityRole=&quot;button&quot;
+          accessibilityLabel={`Toggle popularity of ${item.name}`}
+          onPress={() =&gt; onToggle(item.id)}
+          style={styles.action}
+        &gt;
+          &lt;Text&gt;Toggle popular&lt;/Text&gt;
+        &lt;/Pressable&gt;
+        &lt;Pressable
+          accessibilityRole=&quot;button&quot;
+          accessibilityLabel={`Remove ${item.name}`}
+          onPress={() =&gt; onRemove(item.id)}
+          style={styles.action}
+        &gt;
+          &lt;Text&gt;Remove&lt;/Text&gt;
+        &lt;/Pressable&gt;
+      &lt;/View&gt;
+    &lt;/View&gt;
+  );
+}
+
+export default function App() {
+  const [menu, setMenu] = useState(initialMenu);
+  const [nextId, setNextId] = useState(3);
+  function addMenuItem(draft: MenuDraft) {
+    const item: MenuItem = { ...draft, id: String(nextId) };
+    setNextId(previous =&gt; previous + 1);
+    setMenu(previous =&gt; [...previous, item]);
+  }
+  function togglePopular(id: string) {
+    setMenu(previous =&gt; previous.map(item =&gt;
+      item.id === id ? { ...item, popular: !item.popular } : item
+    ));
+  }
+  function removeItem(id: string) {
+    setMenu(previous =&gt; previous.filter(item =&gt; item.id !== id));
+  }
+  return (
+    &lt;View style={styles.screen}&gt;
+      &lt;Text style={styles.title}&gt;Campus menu&lt;/Text&gt;
+      &lt;Text&gt;{menu.length} items&lt;/Text&gt;
+      &lt;Composer onAdd={addMenuItem} /&gt;
+      &lt;ScrollView contentContainerStyle={styles.list}&gt;
+        {menu.length === 0 ? (
+          &lt;Text&gt;No items yet. Add your first one.&lt;/Text&gt;
+        ) : null}
+        {menu.map(item =&gt; (
+          &lt;ItemCard
+            key={item.id}
+            item={item}
+            onToggle={togglePopular}
+            onRemove={removeItem}
+          /&gt;
+        ))}
+      &lt;/ScrollView&gt;
+    &lt;/View&gt;
+  );
+}
+
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1, paddingTop: 48, paddingHorizontal: 20,
+    paddingBottom: 20, backgroundColor: &#x27;#F6F8FF&#x27;,
+  },
+  title: { fontSize: 28, fontWeight: &#x27;700&#x27;, marginBottom: 6 },
+  composer: { paddingVertical: 16 },
+  input: {
+    borderWidth: 1, borderColor: &#x27;#556080&#x27;, borderRadius: 8,
+    padding: 12, backgroundColor: &#x27;#FFFFFF&#x27;,
+  },
+  row: {
+    flexDirection: &#x27;row&#x27;, alignItems: &#x27;center&#x27;,
+    justifyContent: &#x27;space-between&#x27;, marginVertical: 8,
+  },
+  list: { paddingBottom: 24 },
+  card: {
+    padding: 16, marginBottom: 12, borderRadius: 12,
+    backgroundColor: &#x27;#FFFFFF&#x27;, borderWidth: 1, borderColor: &#x27;#CBD5E1&#x27;,
+  },
+  itemName: { fontSize: 18, fontWeight: &#x27;600&#x27;, marginBottom: 4 },
+  actions: { flexDirection: &#x27;row&#x27;, flexWrap: &#x27;wrap&#x27;, marginTop: 8 },
+  action: {
+    minHeight: 44, justifyContent: &#x27;center&#x27;, paddingHorizontal: 12,
+    marginRight: 8, marginBottom: 4, borderRadius: 8,
+    backgroundColor: &#x27;#DDE8FF&#x27;,
+  },
+});
+</pre></div><p>This exercise combines rendering, state, callbacks, and TypeScript. It separates the form’s temporary input from the parent’s submitted data, and makes the callback contract visible in TypeScript. The parent is the single source of truth for displayed menu items.</p><p>The ID counter is state for this small in-memory practice app and each user submit creates one item. IDs are assigned once at creation rather than during rendering. A real persistent app would need an ID strategy appropriate to storage and multiple clients.</p><p>Add, toggle, and remove each return a new array. Toggle additionally creates a new object only for the changed item. The displayed count is derived from menu.length, so no second count state can drift out of sync. The screen padding is intentionally simple; production safe-area and keyboard behavior are separate concerns.</p></details><h3>Test the behavior</h3><ul><li>Add &quot;  Noodles  &quot;: exactly one Noodles card appears and the input clears.</li><li>Submit a blank field: nothing is added.</li><li>Add two items with the same name: their distinct IDs allow independent toggling and removal.</li><li>Toggle one item twice: other items do not change.</li><li>Remove all items: the count becomes zero and the empty message appears.</li><li>Add an item after clearing the list: it appears normally with a new ID.</li></ul><h3>Transfer challenge</h3><p>Without opening the reference, rebuild the same data flow for a reading list with title and finished fields.</p></article><article class="exercise" id="e11" data-level="Reinforcement" data-search="Fix imports and component props imports exports components props You are given two local files. Fix the imports and the prop usage. Explain why default and named imports have different syntax. This drill is about modules; do not run the two files as one pasted file."><span class="badge">Reinforcement</span><span class="badge purple">8 minutes</span><h2>E11 · Fix imports and component props</h2><p>You are given two local files. Fix the imports and the prop usage. Explain why default and named imports have different syntax. This drill is about modules; do not run the two files as one pasted file.</p><ul><li>Import the default component without braces.</li><li>Import accent by its exported name.</li><li>Pass the prop that CardProps declares.</li></ul><details><summary>Starter code</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// Card.tsx
+export type CardProps = { title: string };
+export default function Card({ title }: CardProps) { /* valid JSX omitted */ }
+export const accent = &#x27;#5B3FD4&#x27;;
+
+// App.tsx
+import { Card } from &#x27;./Card&#x27;;
+import accent from &#x27;./Card&#x27;;
+// &lt;Card name=&quot;Study&quot; /&gt;</pre></div></details><label for="answer-e11">Your attempt and explanation</label><textarea class="answer-editor" id="answer-e11" data-save="answer-e11" spellcheck="false" placeholder="Write your approach here, or use your editor. This box does not run code."></textarea><details><summary>Hint 1</summary><p>A default export can be given a local name by the importer.</p></details><details><summary>Hint 2</summary><p>A named export uses braces; aliases use as.</p></details><details><summary>Hint 3</summary><p>CardProps expects title, not name.</p></details><details><summary>Reference answer and explanation</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// App.tsx import and JSX fragments; Card.tsx is the separate module.
+import Card, { accent } from &#x27;./Card&#x27;;
+import type { CardProps } from &#x27;./Card&#x27;;
+// Within JSX:
+// &lt;Card title=&quot;Study&quot; /&gt;
+// accent is available for a style, e.g. { color: accent }.
+
+// Equally valid import with local aliases:
+// import StudyCard, { accent as brandColor } from &#x27;./Card&#x27;;</pre></div><p>A module has at most one default export and may have many named exports. The default import does not use braces. Named imports match exported names, unless an explicit alias changes the local name. import type makes it clear that CardProps is used only by TypeScript.</p><p>Props are one object parameter. Destructuring { title } extracts the title property; it does not mean the component receives an arbitrary positional string. JSX attribute names must agree with the declared props contract.</p></details><h3>Test the behavior</h3><ul><li>The corrected import resolves the default Card and named accent.</li><li>TypeScript reports an error for &lt;Card name=&quot;Study&quot; /&gt; because title is missing and name is not declared.</li><li>Rename the default import to StudyCard and update the JSX; it still refers to the same component.</li></ul><h3>Transfer challenge</h3><p>Split the integrated menu app into Composer.tsx, ItemCard.tsx, types.ts, and App.tsx.</p></article><article class="exercise" id="e12" data-level="Essential" data-search="Debug rendering and event mistakes debugging events conditional rendering keys Repair the fragment and explain the order of events. Assume imports, count state, and the list are already declared. Do not fix a render-time update with useEffect; fix when the handler runs."><span class="badge">Essential</span><span class="badge purple">10 minutes</span><h2>E12 · Debug rendering and event mistakes</h2><p>Repair the fragment and explain the order of events. Assume imports, count state, and the list are already declared. Do not fix a render-time update with useEffect; fix when the handler runs.</p><ul><li>Update only on a button press.</li><li>Show the message only when count is greater than zero.</li><li>Use a stable ID for each row.</li></ul><details><summary>Starter code</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>return (
+  &lt;View&gt;
+    &lt;Button title=&quot;Add&quot; onPress={setCount(count + 1)} /&gt;
+    {count &amp;&amp; &lt;Text&gt;There are items&lt;/Text&gt;}
+    {items.map(item =&gt; &lt;Text key={Math.random()}&gt;{item.name}&lt;/Text&gt;)}
+  &lt;/View&gt;
+);</pre></div></details><label for="answer-e12">Your attempt and explanation</label><textarea class="answer-editor" id="answer-e12" data-save="answer-e12" spellcheck="false" placeholder="Write your approach here, or use your editor. This box does not run code."></textarea><details><summary>Hint 1</summary><p>A JSX prop expression runs while rendering. setCount(...) calls the setter immediately.</p></details><details><summary>Hint 2</summary><p>Logical &amp;&amp; returns one of its operands; 0 &amp;&amp; something evaluates to 0.</p></details><details><summary>Hint 3</summary><p>Assume each item has a stable id assigned when created.</p></details><details><summary>Reference answer and explanation</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// Component JSX fragment; count, setCount, and items already exist.
+return (
+  &lt;View&gt;
+    &lt;Button title=&quot;Add&quot; onPress={() =&gt; setCount(c =&gt; c + 1)} /&gt;
+    {count &gt; 0 ? &lt;Text&gt;There are items&lt;/Text&gt; : null}
+    {items.map(item =&gt; &lt;Text key={item.id}&gt;{item.name}&lt;/Text&gt;)}
+  &lt;/View&gt;
+);</pre></div><p>onPress expects a function that React Native can call later. Passing the result of setCount invokes the update during render and supplies no useful handler. Wrapping the call defers it until the press. A named handler passed as onPress={handleAdd} works too.</p><p>A numeric left side of &amp;&amp; can produce the number zero rather than an element or nothing. React Native requires text to be inside Text, so prefer an explicit Boolean condition. Random keys change on every render and can remount rows, losing local state and focus.</p></details><h3>Test the behavior</h3><ul><li>Initial render performs no update. Pressing Add changes count once.</li><li>At zero, no raw 0 is inserted as a View child by the condition.</li><li>A re-render keeps the same key for each unchanged item.</li></ul><h3>Transfer challenge</h3><p>Explain the difference between onPress={handleAdd}, onPress={() =&gt; handleAdd()}, and onPress={handleAdd()}.</p></article><article class="exercise" id="e13" data-level="Lecture breadth" data-search="Run one interval and clean it up useEffect timers cleanup hooks Create a seconds counter that runs while running is true and pauses when false. This covers Lecture 5a. Use an effect to manage one interval and clean it up. Predict what happens after repeatedly pausing and restarting."><span class="badge">Lecture breadth</span><span class="badge purple">15 minutes</span><h2>E13 · Run one interval and clean it up</h2><p>Create a seconds counter that runs while running is true and pauses when false. This covers Lecture 5a. Use an effect to manage one interval and clean it up. Predict what happens after repeatedly pausing and restarting.</p><ul><li>Call hooks unconditionally at the top level.</li><li>Create the interval only while running.</li><li>Clear the interval when running changes or the component unmounts.</li><li>Use a functional setter inside the interval.</li></ul><details><summary>Starter code</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// Component-body starting point:
+const [seconds, setSeconds] = useState(0);
+const [running, setRunning] = useState(false);
+// Add an effect and Start/Pause button.</pre></div></details><label for="answer-e13">Your attempt and explanation</label><textarea class="answer-editor" id="answer-e13" data-save="answer-e13" spellcheck="false" placeholder="Write your approach here, or use your editor. This box does not run code."></textarea><details><summary>Hint 1</summary><p>The effect depends on running, because that value determines whether an interval exists.</p></details><details><summary>Hint 2</summary><p>The cleanup must return a function: return () =&gt; clearInterval(id).</p></details><details><summary>Hint 3</summary><p>The interval callback uses setSeconds(s =&gt; s + 1), so it does not need to capture seconds.</p></details><details><summary>Reference answer and explanation</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// Complete App.tsx.
+import { useEffect, useState } from &#x27;react&#x27;;
+import { Button, Text, View } from &#x27;react-native&#x27;;
+export default function App() {
+  const [seconds, setSeconds] = useState(0);
+  const [running, setRunning] = useState(false);
+  useEffect(() =&gt; {
+    if (!running) return;
+    const id = setInterval(() =&gt; setSeconds(s =&gt; s + 1), 1000);
+    return () =&gt; clearInterval(id);
+  }, [running]);
+  return (
+    &lt;View style={{ padding: 40 }}&gt;
+      &lt;Text&gt;{seconds} seconds&lt;/Text&gt;
+      &lt;Button title={running ? &#x27;Pause&#x27; : &#x27;Start&#x27;}
+        onPress={() =&gt; setRunning(value =&gt; !value)} /&gt;
+      &lt;Button title=&quot;Reset&quot; onPress={() =&gt; setSeconds(0)} /&gt;
+    &lt;/View&gt;
+  );
+}</pre></div><p>An effect synchronizes React with a system outside rendering: here a timer. When running changes, React cleans up the previous effect before running the next setup. When the component is removed, it cleans up again. Without cleanup, repeated starts can leave multiple intervals running.</p><p>The updater receives fresh pending state, avoiding a callback that keeps incrementing an old captured seconds value. Effects with [] are mount-oriented, but development Strict Mode may perform an extra setup-cleanup-setup cycle to detect missing cleanup. Timers are not exact clocks; this is a teaching counter, not a precise stopwatch.</p></details><h3>Test the behavior</h3><ul><li>Start: the number increases approximately once each second.</li><li>Pause: the number stops changing. Start again: it does not accelerate.</li><li>Reset while running: the display becomes zero and continues on the existing interval.</li><li>Remove the component: no interval from it remains active.</li></ul><h3>Transfer challenge</h3><p>Build a countdown that stops at zero. Explain why calling setInterval in the render body would create repeated timers.</p></article><article class="exercise" id="e14" data-level="Lecture breadth" data-search="Predict and chain Promises Promises then asynchronous ordering Use the supplied delay function in a standalone TypeScript environment. Predict the log order, then repair the chain so the second then receives the doubled number. This models Lecture 5b without needing network access."><span class="badge">Lecture breadth</span><span class="badge purple">12 minutes</span><h2>E14 · Predict and chain Promises</h2><p>Use the supplied delay function in a standalone TypeScript environment. Predict the log order, then repair the chain so the second then receives the doubled number. This models Lecture 5b without needing network access.</p><ul><li>Predict the synchronous log order before running.</li><li>Return the doubled value from the first then.</li><li>Explain that the Promise represents an eventual result.</li></ul><details><summary>Starter code</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>function delayValue(value: number, ms: number): Promise&lt;number&gt; {
+  return new Promise(resolve =&gt; setTimeout(() =&gt; resolve(value), ms));
+}
+console.log(&#x27;A&#x27;);
+delayValue(3, 20)
+  .then(value =&gt; { value * 2; })
+  .then(value =&gt; console.log(&#x27;C&#x27;, value));
+console.log(&#x27;B&#x27;);</pre></div></details><label for="answer-e14">Your attempt and explanation</label><textarea class="answer-editor" id="answer-e14" data-save="answer-e14" spellcheck="false" placeholder="Write your approach here, or use your editor. This box does not run code."></textarea><details><summary>Hint 1</summary><p>Starting an asynchronous operation does not pause the later console.log(&quot;B&quot;).</p></details><details><summary>Hint 2</summary><p>A then callback’s returned value becomes the fulfillment value of the next Promise in the chain.</p></details><details><summary>Hint 3</summary><p>Use .then(value =&gt; value * 2) or a block with return.</p></details><details><summary>Reference answer and explanation</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// Standalone TypeScript; timer scheduling affects delay, not this log order.
+function delayValue(value: number, ms: number): Promise&lt;number&gt; {
+  return new Promise(resolve =&gt; setTimeout(() =&gt; resolve(value), ms));
+}
+console.log(&#x27;A&#x27;);
+delayValue(3, 20)
+  .then(value =&gt; value * 2)
+  .then(value =&gt; console.log(&#x27;C&#x27;, value))
+  .catch(error =&gt; console.error(&#x27;Failed:&#x27;, error));
+console.log(&#x27;B&#x27;);
+// Logs A, then B, then C 6 after the timer resolves.</pre></div><p>The first two logs happen in the current synchronous work. The timer later resolves the Promise with 3, allowing the then callbacks to run. then returns another Promise, so a chain represents a sequence of asynchronous and synchronous transformations.</p><p>The original block callback did not return its calculation. Its next then received undefined. This is the same missing-return idea as the broken map callback, applied to a different API. catch is an error-handling extension to the deck’s basic then examples; it handles a rejection or an error thrown in the preceding chain.</p></details><h3>Test the behavior</h3><ul><li>The output order is A, B, C 6.</li><li>Restore the original missing return: C receives undefined.</li><li>Throw new Error(&quot;practice&quot;) in the first then; the catch runs and the success log is skipped.</li></ul><h3>Transfer challenge</h3><p>Write a delayText function returning Promise&lt;string&gt;, and transform the fulfilled text to uppercase.</p></article><article class="exercise" id="e15" data-level="Reinforcement" data-search="Insert and replace with slice array spread slice immutable arrays This standalone TypeScript drill follows Lecture 4b slide 7. Starting with [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;], insert X at index 2, replace index 2 with X, and remove index 2. Each operation must start from the original array, not the previous answer."><span class="badge">Reinforcement</span><span class="badge purple">10 minutes</span><h2>E15 · Insert and replace with slice</h2><p>This standalone TypeScript drill follows Lecture 4b slide 7. Starting with [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;], insert X at index 2, replace index 2 with X, and remove index 2. Each operation must start from the original array, not the previous answer.</p><ul><li>Leave letters unchanged.</li><li>Explain slice’s excluded end index.</li><li>Use a new array for each result.</li></ul><details><summary>Starter code</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>const letters = [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;];
+const inserted = /* ? */;
+const replaced = /* ? */;
+const removed = /* ? */;</pre></div></details><label for="answer-e15">Your attempt and explanation</label><textarea class="answer-editor" id="answer-e15" data-save="answer-e15" spellcheck="false" placeholder="Write your approach here, or use your editor. This box does not run code."></textarea><details><summary>Hint 1</summary><p>letters.slice(0, 2) gives A and B.</p></details><details><summary>Hint 2</summary><p>Insertion resumes at index 2; replacement and removal resume at index 3.</p></details><details><summary>Hint 3</summary><p>Spread the two slices around the inserted value.</p></details><details><summary>Reference answer and explanation</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// Standalone TypeScript.
+const letters = [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;];
+const inserted = [...letters.slice(0, 2), &#x27;X&#x27;, ...letters.slice(2)];
+const replaced = [...letters.slice(0, 2), &#x27;X&#x27;, ...letters.slice(3)];
+const removed = [...letters.slice(0, 2), ...letters.slice(3)];
+// inserted: [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;X&#x27;, &#x27;C&#x27;, &#x27;D&#x27;]
+// replaced: [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;X&#x27;, &#x27;D&#x27;]
+// removed: [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;D&#x27;]
+// letters: [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;]</pre></div><p>slice returns a shallow copy of the requested portion without changing the source. Its end index is exclusive. Insertion keeps the original element at index 2; replacement and removal deliberately skip it by continuing from index 3.</p><p>The different bracket roles matter: array literals use square brackets, function calls use parentheses, and object literals use braces. Naming the role of each delimiter is a faster debugging method than adding punctuation until the error disappears.</p></details><h3>Test the behavior</h3><ul><li>Check the three exact outputs above and confirm the original still has length 4.</li><li>Insert at index 0 and at letters.length; predict both outputs.</li><li>Change the index to 1 and compute the three results on paper first.</li></ul><h3>Transfer challenge</h3><p>Use slice inside setTasks(previous =&gt; ...) to insert a task at a chosen position.</p></article><article class="exercise" id="e16" data-level="Lecture breadth" data-search="Explain a cross-platform implementation choice cross-platform Expo React Native core components This is a design-and-code interview drill. A campus club wants one small app for iOS and Android with text, images, and a sign-up form. Explain what React Native and Expo each provide, then translate the web fragment below to React Native. No networking is required."><span class="badge">Lecture breadth</span><span class="badge purple">8 minutes</span><h2>E16 · Explain a cross-platform implementation choice</h2><p>This is a design-and-code interview drill. A campus club wants one small app for iOS and Android with text, images, and a sign-up form. Explain what React Native and Expo each provide, then translate the web fragment below to React Native. No networking is required.</p><ul><li>Use View, Text, and TextInput.</li><li>State one shared-code benefit and one platform-specific testing need.</li><li>Do not claim React Native is a web page inside a browser.</li><li>Explain that Expo Go supports a fixed set of native capabilities.</li></ul><details><summary>Starter code</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// Web JSX to translate:
+// &lt;div className=&quot;card&quot;&gt;&lt;p&gt;Join the club&lt;/p&gt;&lt;input /&gt;&lt;/div&gt;</pre></div></details><label for="answer-e16">Your attempt and explanation</label><textarea class="answer-editor" id="answer-e16" data-save="answer-e16" spellcheck="false" placeholder="Write your approach here, or use your editor. This box does not run code."></textarea><details><summary>Hint 1</summary><p>Core React Native components map to platform-native views on iOS and Android.</p></details><details><summary>Hint 2</summary><p>React provides the component/state model; React Native provides native UI components; Expo provides a framework, libraries, and development tools.</p></details><details><summary>Hint 3</summary><p>Use style objects rather than className in a standard React Native setup.</p></details><details><summary>Reference answer and explanation</summary><div class="code"><button type="button" class="copy" aria-label="Copy code">Copy</button><pre>// Component JSX fragment. name and setName are useState values.
+&lt;View style={{ padding: 16, borderWidth: 1 }}&gt;
+  &lt;Text&gt;Join the club&lt;/Text&gt;
+  &lt;TextInput accessibilityLabel=&quot;Your name&quot;
+    value={name} onChangeText={setName}
+    style={{ borderWidth: 1, padding: 12 }} /&gt;
+&lt;/View&gt;</pre></div><p>Shared TypeScript and React components can reduce duplicated application logic across iOS and Android. React Native renders platform-native views rather than requiring a WebView for the entire interface. Behavior still differs across devices, so test keyboard handling, text size, safe areas, permissions, and touch interactions on the target platforms.</p><p>Expo simplifies the React Native development workflow and offers libraries and services. Expo Go is convenient for supported APIs, but a custom native dependency can require a development build. A browser preview is useful for iteration, but it does not prove that an app behaves correctly on iOS and Android.</p></details><h3>Test the behavior</h3><ul><li>Explain every translated component and how its props differ from the web element.</li><li>Identify a keyboard or layout behavior to test separately on each platform.</li><li>Distinguish a browser web app, an installable PWA, and a React Native app in two sentences each.</li></ul><h3>Transfer challenge</h3><p>Explain when a simple browser-based app might be sufficient, without assuming one approach is always better.</p></article></main><footer><p>Independently prepared study materials for CS 147L. Original practice questions and practice rubrics are not official assessments. Based on the ten supplied Autumn 2026 decks. Sources checked 6 November 2026.</p><p>Works offline. Notes and checks stay in this browser when local storage is available; they may not persist in private browsing or some file viewers. No account or external tracking is used. <a href="index.html#downloads">Download printable guides</a> · <a href="sources.html">Sources and coverage</a></p></footer><script src="assets/app.js"></script><script src="assets/studio.js"></script></body></html>
